@@ -48,7 +48,7 @@
             android:name="com.example.ead.activities.SignupPage"
             android:exported="false" />
         <activity
-            android:name="com.example.ead.LoginPage"
+            android:name="com.example.ead.activities.LoginPage"
             android:exported="false" />
 <!--        <activity-->
 <!--            android:name="com.example.endura.UserProfilePage"-->
@@ -112,7 +112,7 @@
 <!--            android:exported="false" />-->
 
         <activity
-            android:name="com.example.ead.LandingPageActivity"
+            android:name="com.example.ead.activities.LandingPageActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

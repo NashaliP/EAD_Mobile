@@ -1,4 +1,4 @@
-package com.example.ead;
+package com.example.ead.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.ead.R;
+import com.example.ead.activities.LoginPage;
 import com.example.ead.activities.SignupPage;
 
 //import com.google.firebase.auth.FirebaseAuth;
