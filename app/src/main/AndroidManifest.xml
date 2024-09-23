@@ -6,113 +6,113 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:networkSecurityConfig="@xml/network_security_config"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@drawable/icon"
         android:label="@string/app_name"
+        android:networkSecurityConfig="@xml/network_security_config"
         android:roundIcon="@drawable/icon"
         android:supportsRtl="true"
         android:theme="@style/Theme.SkyEx"
         tools:targetApi="31">
-
-<!--        <activity-->
-<!--            android:name="com.example.endura.ForgotPasswordActivity"-->
-<!--            android:exported="false" />-->
-<!--        <activity-->
-<!--            android:name="com.example.endura.UpdateProfileActivity"-->
-<!--            android:exported="false" />-->
-<!--        <activity-->
-<!--            android:name="com.example.endura.DeleteProfileActivity"-->
-<!--            android:exported="false" />-->
-<!--        <activity-->
-<!--            android:name="com.example.endura.UserDashboardActivity"-->
-<!--            android:exported="false" />-->
-<!--        <activity-->
-<!--            android:name="com.example.endura.AddLoyaltyActivity"-->
-<!--            android:exported="false" />-->
-<!--        <activity-->
-<!--            android:name="com.example.endura.EditLoyaltyActivity"-->
-<!--            android:exported="false" />-->
-<!--        <activity-->
-<!--            android:name="com.example.endura.LoyaltyViewActivity"-->
-<!--            android:exported="false" />-->
-<!--        <activity-->
-<!--            android:name="com.example.endura.LandingPage"-->
-<!--            android:exported="false" />-->
-<!--        <activity-->
-<!--            android:name="com.example.endura.UserProfilePage"-->
-<!--            android:exported="false" />-->
         <activity
-            android:name="com.example.ead.activities.SignupPage"
+            android:name=".activities.TrackOrderActivity"
+            android:exported="false" />
+        <!-- <activity -->
+        <!-- android:name="com.example.endura.ForgotPasswordActivity" -->
+        <!-- android:exported="false" /> -->
+        <!-- <activity -->
+        <!-- android:name="com.example.endura.UpdateProfileActivity" -->
+        <!-- android:exported="false" /> -->
+        <!-- <activity -->
+        <!-- android:name="com.example.endura.DeleteProfileActivity" -->
+        <!-- android:exported="false" /> -->
+        <!-- <activity -->
+        <!-- android:name="com.example.endura.UserDashboardActivity" -->
+        <!-- android:exported="false" /> -->
+        <!-- <activity -->
+        <!-- android:name="com.example.endura.AddLoyaltyActivity" -->
+        <!-- android:exported="false" /> -->
+        <!-- <activity -->
+        <!-- android:name="com.example.endura.EditLoyaltyActivity" -->
+        <!-- android:exported="false" /> -->
+        <!-- <activity -->
+        <!-- android:name="com.example.endura.LoyaltyViewActivity" -->
+        <!-- android:exported="false" /> -->
+        <!-- <activity -->
+        <!-- android:name="com.example.endura.LandingPage" -->
+        <!-- android:exported="false" /> -->
+        <!-- <activity -->
+        <!-- android:name="com.example.endura.UserProfilePage" -->
+        <!-- android:exported="false" /> -->
+        <activity
+            android:name=".activities.SignupPage"
             android:exported="false" />
         <activity
-            android:name="com.example.ead.activities.LoginPage"
-            android:exported="false" />
-<!--        <activity-->
-<!--            android:name="com.example.endura.UserProfilePage"-->
-<!--            android:exported="false" />-->
-<!--        <activity-->
-<!--            android:name="com.example.endura.ShopActivity"-->
-<!--            android:exported="false" />-->
-<!--        <activity-->
-<!--            android:name="com.example.endura.CheckoutActivity"-->
-<!--            android:exported="false" />-->
-<!--        <activity-->
-<!--            android:name="com.example.endura.EditCardActivity"-->
-<!--            android:exported="false" />-->
-<!--        <activity-->
-<!--            android:name="com.example.endura.AddCardActivity"-->
-<!--            android:exported="false" />-->
-<!--        <activity-->
-<!--            android:name="com.example.endura.PaymentActivity"-->
-<!--            android:exported="false" />-->
-<!--        <activity-->
-<!--            android:name="com.example.endura.EditAddressActivity"-->
-<!--            android:exported="false" />-->
-<!--        <activity-->
-<!--            android:name="com.example.endura.addAddressActivity"-->
-<!--            android:exported="false" />-->
-<!--        <activity-->
-<!--            android:name="com.example.endura.ShippingActivity"-->
-<!--            android:exported="false" />-->
-<!--        <activity-->
-<!--            android:name="com.example.endura.ShoppingCartActivity"-->
-<!--            android:exported="false" />-->
-<!--        <activity-->
-<!--            android:name="com.example.endura.ProductActivity"-->
-<!--            android:exported="false" />-->
-<!--        <activity-->
-<!--            android:name="com.example.endura.ProductViewActivity"-->
-<!--            android:exported="false" />-->
-<!--        <activity-->
-<!--            android:name="com.example.endura.EditCollectionActivity"-->
-<!--            android:exported="false" />-->
-<!--        <activity-->
-<!--            android:name="com.example.endura.AddCollectionActivity"-->
-<!--            android:exported="false" />-->
-<!--        <activity-->
-<!--            android:name="com.example.endura.EditProductActivity"-->
-<!--            android:exported="false" />-->
-<!--        <activity-->
-<!--            android:name="com.example.endura.AddProductActivity"-->
-<!--            android:exported="false" />-->
-<!--        <activity-->
-<!--            android:name="com.example.endura.ProfileActivity"-->
-<!--            android:exported="false" />-->
-<!--        <activity-->
-<!--            android:name="com.example.endura.FavoritesActivity"-->
-<!--            android:exported="false" />-->
-<!--        <activity-->
-<!--            android:name="com.example.endura.ExploreActivity"-->
-<!--            android:exported="false" />-->
-<!--        <activity-->
-<!--            android:name="com.example.endura.MainActivity"-->
-<!--            android:exported="false" />-->
-
+            android:name=".activities.LoginPage"
+            android:exported="false" /> <!-- <activity -->
+        <!-- android:name="com.example.endura.UserProfilePage" -->
+        <!-- android:exported="false" /> -->
+        <!-- <activity -->
+        <!-- android:name="com.example.endura.ShopActivity" -->
+        <!-- android:exported="false" /> -->
+        <!-- <activity -->
+        <!-- android:name="com.example.endura.CheckoutActivity" -->
+        <!-- android:exported="false" /> -->
+        <!-- <activity -->
+        <!-- android:name="com.example.endura.EditCardActivity" -->
+        <!-- android:exported="false" /> -->
+        <!-- <activity -->
+        <!-- android:name="com.example.endura.AddCardActivity" -->
+        <!-- android:exported="false" /> -->
+        <!-- <activity -->
+        <!-- android:name="com.example.endura.PaymentActivity" -->
+        <!-- android:exported="false" /> -->
+        <!-- <activity -->
+        <!-- android:name="com.example.endura.EditAddressActivity" -->
+        <!-- android:exported="false" /> -->
+        <!-- <activity -->
+        <!-- android:name="com.example.endura.addAddressActivity" -->
+        <!-- android:exported="false" /> -->
+        <!-- <activity -->
+        <!-- android:name="com.example.endura.ShippingActivity" -->
+        <!-- android:exported="false" /> -->
+        <!-- <activity -->
+        <!-- android:name="com.example.endura.ShoppingCartActivity" -->
+        <!-- android:exported="false" /> -->
+        <!-- <activity -->
+        <!-- android:name="com.example.endura.ProductActivity" -->
+        <!-- android:exported="false" /> -->
+        <!-- <activity -->
+        <!-- android:name="com.example.endura.ProductViewActivity" -->
+        <!-- android:exported="false" /> -->
+        <!-- <activity -->
+        <!-- android:name="com.example.endura.EditCollectionActivity" -->
+        <!-- android:exported="false" /> -->
+        <!-- <activity -->
+        <!-- android:name="com.example.endura.AddCollectionActivity" -->
+        <!-- android:exported="false" /> -->
+        <!-- <activity -->
+        <!-- android:name="com.example.endura.EditProductActivity" -->
+        <!-- android:exported="false" /> -->
+        <!-- <activity -->
+        <!-- android:name="com.example.endura.AddProductActivity" -->
+        <!-- android:exported="false" /> -->
+        <!-- <activity -->
+        <!-- android:name="com.example.endura.ProfileActivity" -->
+        <!-- android:exported="false" /> -->
+        <!-- <activity -->
+        <!-- android:name="com.example.endura.FavoritesActivity" -->
+        <!-- android:exported="false" /> -->
+        <!-- <activity -->
+        <!-- android:name="com.example.endura.ExploreActivity" -->
+        <!-- android:exported="false" /> -->
+        <!-- <activity -->
+        <!-- android:name="com.example.endura.MainActivity" -->
+        <!-- android:exported="false" /> -->
         <activity
-            android:name="com.example.ead.activities.LandingPageActivity"
+            android:name=".activities.OrderHistoryActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
