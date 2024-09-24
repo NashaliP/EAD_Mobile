@@ -112,7 +112,7 @@
         <!-- android:name="com.example.endura.MainActivity" -->
         <!-- android:exported="false" /> -->
         <activity
-            android:name=".activities.OrderHistoryActivity"
+            android:name=".activities.LandingPageActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
