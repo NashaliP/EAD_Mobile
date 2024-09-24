@@ -157,6 +157,11 @@ public class SignupPage extends AppCompatActivity {
                             if (response.isSuccessful()) {
                                 UserResponse userResponse = response.body();
                                 Toast.makeText(SignupPage.this, userResponse.getMessage(), Toast.LENGTH_SHORT).show();
+
+                                // Navigate to the login page after successful signup
+                                Intent loginActivity = new Intent(SignupPage.this, LoginPage.class);
+                                startActivity(loginActivity);
+                                finish();
                             } else {
                                 try {
                                     String errorBody = response.errorBody().string();
