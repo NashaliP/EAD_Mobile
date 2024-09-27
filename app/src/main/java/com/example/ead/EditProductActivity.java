@@ -79,7 +79,7 @@
 //                    @Override
 //                    public void onComplete(@NonNull Task<Void> task) {
 //                        if (task.isSuccessful()){
-//                            Toast.makeText(EditProductActivity.this, "Product updated", Toast.LENGTH_SHORT).show();
+//                            Toast.makeText(EditProductActivity.this, "ProductModel updated", Toast.LENGTH_SHORT).show();
 //                            Intent intent = new Intent(EditProductActivity.this,ProductViewActivity.class);
 //                            intent.putExtra("collection", productCollection);
 //                            startActivity(intent);
@@ -100,7 +100,7 @@
 //                    @Override
 //                    public void onComplete(@NonNull Task<Void> task) {
 //                        if (task.isSuccessful()){
-//                            Toast.makeText(EditProductActivity.this, "Product Deleted", Toast.LENGTH_SHORT).show();
+//                            Toast.makeText(EditProductActivity.this, "ProductModel Deleted", Toast.LENGTH_SHORT).show();
 //                            Intent intent = new Intent(EditProductActivity.this,ProductViewActivity.class);
 //                            intent.putExtra("collection", productCollection);
 //                            startActivity(intent);

@@ -16,19 +16,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SkyEx"
         tools:targetApi="31">
-        <activity
-            android:name=".activities.TrackOrderActivity"
-            android:exported="false" />
-        <!-- <activity -->
-        <!-- android:name="com.example.endura.ForgotPasswordActivity" -->
-        <!-- android:exported="false" /> -->
-        <!-- <activity -->
-        <!-- android:name="com.example.endura.UpdateProfileActivity" -->
-        <!-- android:exported="false" /> -->
-        <!-- <activity -->
-        <!-- android:name="com.example.endura.DeleteProfileActivity" -->
-        <!-- android:exported="false" /> -->
-        <!-- <activity -->
+<!--        <activity-->
+<!--            android:name=".activities.ShoppingActivity"-->
+<!--            android:exported="false" />-->
+<!--        <activity-->
+<!--            android:name=".activities.TrackOrderActivity"-->
+<!--            android:exported="false" /> &lt;!&ndash; <activity &ndash;&gt;-->
         <!-- android:name="com.example.endura.UserDashboardActivity" -->
         <!-- android:exported="false" /> -->
         <!-- <activity -->
@@ -52,12 +45,6 @@
         <activity
             android:name=".activities.LoginPage"
             android:exported="false" /> <!-- <activity -->
-        <!-- android:name="com.example.endura.UserProfilePage" -->
-        <!-- android:exported="false" /> -->
-        <!-- <activity -->
-        <!-- android:name="com.example.endura.ShopActivity" -->
-        <!-- android:exported="false" /> -->
-        <!-- <activity -->
         <!-- android:name="com.example.endura.CheckoutActivity" -->
         <!-- android:exported="false" /> -->
         <!-- <activity -->

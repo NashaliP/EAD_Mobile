@@ -141,7 +141,7 @@
 ////                    XXXNew methodXXX
 ////                    databaseReference.child(FirebaseAuth.getInstance().getUid().toString()).child(ID).setValue(cartModel);
 //                    databaseReference.child(ID).setValue(cartModel);
-//                    Toast.makeText(ProductActivity.this, "Product Added to the cart", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(ProductActivity.this, "ProductModel Added to the cart", Toast.LENGTH_SHORT).show();
 //                }
 //            }
 //        });

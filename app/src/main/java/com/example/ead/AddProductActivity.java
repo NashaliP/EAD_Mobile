@@ -61,7 +61,7 @@
 //                        productImage);
 //
 //                databaseReference.child(productId).setValue(productModel);
-//                Toast.makeText(AddProductActivity.this, "Product Added", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(AddProductActivity.this, "ProductModel Added", Toast.LENGTH_SHORT).show();
 //                Intent intent = new Intent(AddProductActivity.this, ProductViewActivity.class);
 //                intent.putExtra("collection", collectionName);
 //                startActivity(intent);
