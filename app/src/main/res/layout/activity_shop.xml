@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ShopActivity">
+    tools:context="activities.ShopActivity">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -47,10 +47,12 @@
                     android:id="@+id/idIBCart"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="24dp"
                     android:layout_marginEnd="24dp"
                     android:background="#00A1A1A1"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.88"
+                    app:layout_constraintStart_toEndOf="@+id/idIVLOGO"
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@drawable/ic_outline_shopping_cart_24" />
 
@@ -69,13 +71,33 @@
 
             </ImageView>
 
+            <!-- SearchView for product search -->
+            <SearchView
+                android:id="@+id/idSVExplore"
+                android:layout_width="316dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="24dp"
+                android:background="@color/black"
+                android:backgroundTint="#F1F1F1"
+                android:iconifiedByDefault="false"
+                android:queryHint="Search for products"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.489"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/idHomeImage" />
+
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/idCL1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/idHomeImage">
+                app:layout_constraintTop_toBottomOf="@+id/idSVExplore">
+
 
                 <TextView
                     android:id="@+id/idTVTopic1"
@@ -91,6 +113,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <LinearLayout
+                    android:id="@+id/linearLayout"
                     android:layout_width="match_parent"
                     android:layout_height="250dp"
                     android:layout_marginStart="24dp"
@@ -115,6 +138,7 @@
                     android:text="Show all"
                     app:layout_constraintBaseline_toBaselineOf="@+id/idTVTopic1"
                     app:layout_constraintEnd_toEndOf="parent" />
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout

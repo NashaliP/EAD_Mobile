@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#00939393"
-    tools:context=".LandingPageActivity">
+    tools:context="activities.LandingPageActivity">
 
     <!--    <ImageView-->
     <!--        android:id="@+id/idIVLanding"-->
@@ -76,21 +76,17 @@
     <!--        app:layout_constraintHorizontal_bias="0.562"-->
     <!--        app:layout_constraintStart_toStartOf="parent" />-->
 
-    <ImageView
-        android:id="@+id/imageView6"
-        android:layout_width="257dp"
-        android:layout_height="93dp"
-        android:layout_marginStart="103dp"
-        android:layout_marginTop="212dp"
-        android:layout_marginEnd="124dp"
-        android:layout_marginBottom="32dp"
+    <TextView
+        android:id="@+id/textView26"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="HEHE."
+        android:textColor="@color/black"
+        android:textSize="60sp"
         app:layout_constraintBottom_toTopOf="@+id/btn_login"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.356"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.259"
-        app:srcCompat="@drawable/pepperst" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btn_login"

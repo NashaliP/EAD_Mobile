@@ -1,4 +1,4 @@
-//package com.example.endura;
+//package com.example.ead.activities;
 //
 //import androidx.annotation.NonNull;
 //import androidx.appcompat.app.AppCompatActivity;
@@ -13,13 +13,9 @@
 //import android.widget.ImageView;
 //import android.widget.TextView;
 //
+//import com.example.ead.models.ProductModel;
 //import com.google.android.material.bottomnavigation.BottomNavigationView;
 //import com.google.android.material.navigation.NavigationBarView;
-//import com.google.firebase.database.DataSnapshot;
-//import com.google.firebase.database.DatabaseError;
-//import com.google.firebase.database.DatabaseReference;
-//import com.google.firebase.database.FirebaseDatabase;
-//import com.google.firebase.database.ValueEventListener;
 //import com.squareup.picasso.Picasso;
 //
 //import java.util.ArrayList;
@@ -41,8 +37,6 @@
 //    private RecyclerView recyclerView3;
 //    private ProductHRVAdapter productHRVAdapter3;
 //    private ArrayList<ProductModel> productModelArrayList3;
-//    private FirebaseDatabase firebaseDatabase;
-//    private DatabaseReference databaseReference;
 //
 //    @Override
 //    protected void onCreate(Bundle savedInstanceState) {

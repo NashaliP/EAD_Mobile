@@ -8,6 +8,10 @@ import retrofit2.http.Body;
 import retrofit2.http.POST;
 
 public interface UserService {
-    @POST("User/create") // Endpoint for creating a user
-    Call<UserResponse> createUser(@Body User user);
+    @POST("User/signup")
+    Call<UserResponse> signupUser(@Body User user);
+
+    // Login endpoint
+    @POST("User/login")
+    Call<UserResponse> loginUser(@Body User user);
 }
