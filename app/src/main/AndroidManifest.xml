@@ -98,9 +98,9 @@
         <!-- <activity -->
         <!-- android:name="com.example.endura.ExploreActivity" -->
         <!-- android:exported="false" /> -->
-        <!-- <activity -->
-        <!-- android:name="com.example.endura.MainActivity" -->
-        <!-- android:exported="false" /> -->
+         <activity
+         android:name="com.example.ead.activities.MainActivity"
+         android:exported="false" />
         <activity
             android:name=".activities.LandingPageActivity"
             android:exported="true">
