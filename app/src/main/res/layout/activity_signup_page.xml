@@ -6,18 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".activities.SignupPage">
 
+
     <!-- Header Text -->
-
-    <!-- Email EditText -->
-
-    <!-- Password EditText -->
-
-    <!-- Sign Up Button -->
-
-    <!-- Login Link -->
-
-    <!-- Progress Bar -->
-
     <TextView
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
@@ -25,12 +15,13 @@
         android:layout_marginTop="100dp"
         android:text="Create Your Account"
         android:textColor="@color/black"
-        android:textSize="28sp"
+        android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <!-- Email EditText -->
     <EditText
         android:id="@+id/etEmail"
         android:layout_width="0dp"
@@ -46,6 +37,7 @@
         app:layout_constraintTop_toBottomOf="@id/textView6"
         app:layout_constraintWidth_percent="0.8" />
 
+    <!-- Password EditText -->
     <EditText
         android:id="@+id/etPassword"
         android:layout_width="0dp"
@@ -61,6 +53,7 @@
         app:layout_constraintTop_toBottomOf="@id/etEmail"
         app:layout_constraintWidth_percent="0.8" />
 
+    <!-- Sign Up Button -->
     <Button
         android:id="@+id/btnRegisterSignup"
         android:layout_width="0dp"
@@ -74,12 +67,13 @@
         app:layout_constraintTop_toBottomOf="@id/etPassword"
         app:layout_constraintWidth_percent="0.8" />
 
+    <!-- Login Link -->
     <TextView
         android:id="@+id/tvLoginLink"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:text="Already have an account? Login"
+        android:text="Already have an account? Sign in"
         android:textColor="@color/black"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
