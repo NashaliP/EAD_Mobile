@@ -1,6 +1,7 @@
 package com.example.ead.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,56 +13,66 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.ead.R;
+import com.example.ead.activities.ProductActivity;
 import com.example.ead.models.ProductModel;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class FavoriteProductsAdapter extends RecyclerView.Adapter<FavoriteProductsAdapter.FavoritesViewHolder> {
+public class ProductsListAdapter extends RecyclerView.Adapter<ProductsListAdapter.ProductsViewHolder> {
 
     private Context context;
-    private List<ProductModel> favoriteProducts; // List to hold favorite products
+    private List<ProductModel> listProducts;
 
-    public FavoriteProductsAdapter(Context context, List<ProductModel> favoriteProducts) {
+    public ProductsListAdapter(Context context, List<ProductModel> listProducts) {
         this.context = context;
-        this.favoriteProducts = favoriteProducts;
+        // Initialize the list, ensuring it's never null
+        this.listProducts = (listProducts != null) ? listProducts : new ArrayList<>();
     }
 
     @NonNull
     @Override
-    public FavoritesViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ProductsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         // Inflate the product card layout (this will be the product card XML layout)
         View view = LayoutInflater.from(context).inflate(R.layout.product_hcard, parent, false);
-        return new FavoritesViewHolder(view);
+        return new ProductsViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull FavoritesViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ProductsViewHolder holder, int position) {
         // Bind data to the view holder
-        ProductModel product = favoriteProducts.get(position);
+        ProductModel product = listProducts.get(position);
 
         // Set the data in the corresponding views
-        holder.productTitleTxt.setText(product.getTitle());
+        holder.productTitleTxt.setText(product.getName());
         holder.textView30.setText("$" + product.getPrice());
         holder.ratingTxt.setText(String.valueOf(product.getRating()));
 
         // Load product image using Picasso/Glide or any image loading library
-        Glide.with(context).load(product.getImageResource()).into(holder.imageView4);
+        Glide.with(context).load(product.getImgurl()).into(holder.imageView4);
+
+        // Handle the click on the product card to navigate to ProductActivity
+        holder.itemView.setOnClickListener(v -> {
+            Intent intent = new Intent(context, ProductActivity.class);
+            intent.putExtra("productId", product.getId());  // Pass product ID
+            context.startActivity(intent);
+        });
     }
 
     @Override
     public int getItemCount() {
-        // Return the number of favorite products
-        return favoriteProducts.size();
+        // Return the number of products
+        return (listProducts != null) ? listProducts.size() : 0; // Ensure we don't call size() on null
     }
 
     // ViewHolder class for binding the views of the product card
-    public static class FavoritesViewHolder extends RecyclerView.ViewHolder {
+    public static class ProductsViewHolder extends RecyclerView.ViewHolder {
 
         TextView productTitleTxt, ratingTxt, textView30;
         ImageView imageView4, imageView6;
         TextView textView29; // For the "+" button
 
-        public FavoritesViewHolder(@NonNull View itemView) {
+        public ProductsViewHolder(@NonNull View itemView) {
             super(itemView);
 
             productTitleTxt = itemView.findViewById(R.id.productTitleTxt);

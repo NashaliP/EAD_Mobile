@@ -1,73 +1,83 @@
 package com.example.ead.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
-import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.example.ead.R;
-import com.example.ead.adapter.ProductListAdapter;
+import com.example.ead.adapter.ProductsListAdapter;
 import com.example.ead.models.ProductModel;
+import com.example.ead.network.ApiClient;
+import com.example.ead.services.CategoryService;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class ProductListActivity extends AppCompatActivity {
 
-    RecyclerView productListRV;
     TextView titleTxt;
     ProgressBar progressBar;
-    List<ProductModel> products = new ArrayList<>();
-    ProductListAdapter productListAdapter;
+
+    private RecyclerView productListRV;
+    private ProductsListAdapter productAdapter;
+    private List<ProductModel> productModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product_list);
 
-        // Initialize views
+       // Initialize RecyclerView and TextView
         productListRV = findViewById(R.id.productListRV);
         titleTxt = findViewById(R.id.titleTxt);
         progressBar = findViewById(R.id.progressBar);
-
-        // Get the category info from the Intent
-        String categoryId = getIntent().getStringExtra("categoryId");
-        String categoryName = getIntent().getStringExtra("categoryName");
-
-        // Set the category name as the title
-        titleTxt.setText(categoryName);
-
-        // Set up RecyclerView
-        productListAdapter = new ProductListAdapter(this, products);
-        productListRV.setAdapter(productListAdapter);
         productListRV.setLayoutManager(new LinearLayoutManager(this));
 
-        // Fetch products based on the category
-        fetchProductsByCategory(categoryId);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2); // 2 columns
+        productListRV.setLayoutManager(gridLayoutManager);
 
+        // Initialize the product list and adapter
+        productModel = new ArrayList<>();
+        productAdapter = new ProductsListAdapter(this, productModel);
+        productListRV.setAdapter(productAdapter);
+
+        // Get the selected category from the Intent
+        String categoryName = getIntent().getStringExtra("categoryName");
+        titleTxt.setText(categoryName); // Set the title to the category name
+
+        // Fetch products for the selected category
+        fetchProductsByCategory(categoryName);
 
     }
 
-    private void fetchProductsByCategory(String categoryId) {
-        // For now, you can hardcode some static products based on the category ID
-        // Later, replace this with real data fetching from the backend
-        progressBar.setVisibility(View.VISIBLE);
+    private void fetchProductsByCategory(String categoryName) {
+        CategoryService categoryService = ApiClient.getRetrofitInstance().create(CategoryService.class);
 
-        if (categoryId.equals("1")) {
-            products.add(new ProductModel("1", "Red Dress",  R.drawable.dress1, 59.99, 4.8f));
-            products.add(new ProductModel("2", "Blue Dress",  R.drawable.dress2,79.99, 4.5f));
-            products.add(new ProductModel("3", "Green Dress",  R.drawable.dress3,79.99, 4.5f));
-//        } else if (categoryId.equals("2")) {
-//            products.add(new ProductModel("3", "Black Shoes", 99.99, R.drawable.dress3 4.9));
-//            products.add(new ProductModel("4", "White Sneakers", 49.99, R.drawable.white_sneakers, 4.7));
-        }
+        // Call the API to get products by category
+        Call<List<ProductModel>> call = categoryService.getProductsByCategoryName(categoryName);
+        call.enqueue(new Callback<List<ProductModel>>() {
+            @Override
+            public void onResponse(Call<List<ProductModel>> call, Response<List<ProductModel>> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    productModel.clear(); // Clear existing products
+                    productModel.addAll(response.body()); // Add new products
+                    productAdapter.notifyDataSetChanged(); // Notify adapter of data changes
+                }
+            }
 
-        // Hide progress bar and update RecyclerView
-        progressBar.setVisibility(View.GONE);
-        productListAdapter.notifyDataSetChanged();
+            @Override
+            public void onFailure(Call<List<ProductModel>> call, Throwable t) {
+                // Handle error
+            }
+        });
     }
 }
