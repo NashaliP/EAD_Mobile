@@ -42,10 +42,10 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
         // Set the category name
         holder.categoryNameTxt.setText(category.getCategoryName());
         // Set the category icon
-        holder.imgCat.setImageResource(category.getImageResource());
+//        holder.imgCat.setImageResource(category.getImageResource());
 
-        // Set the background dynamically based on position or ID
-        holder.imgCat.setBackgroundResource(getBackgroundResourceForPosition(position));
+        // Set the background (all categories will have the same background)
+        holder.imgCat.setBackgroundResource(R.drawable.cat_1_bg);
 
         // Set click listener to navigate to ProductListActivity
         holder.itemView.setOnClickListener(v -> {
@@ -76,29 +76,5 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
             categoryNameTxt = itemView.findViewById(R.id.categoryNameTxt);
         }
     }
-
-    // Helper method to return the correct background resource based on the position or ID
-    private int getBackgroundResourceForPosition(int position) {
-        // You can map specific positions or IDs to background drawables here.
-        switch (position) {
-            case 0:
-                return R.drawable.cat_1_bg;
-            case 1:
-                return R.drawable.cat_2_bg;
-            case 2:
-                return R.drawable.cat_3_bg;
-            case 3:
-                return R.drawable.cat_4_bg;
-            case 4:
-                return R.drawable.cat_5_bg;
-            case 5:
-                return R.drawable.cat_6_bg;
-            case 6:
-                return R.drawable.cat_7_bg;
-            case 7:
-                return R.drawable.cat_8_bg;
-            default:
-                return R.drawable.grey_background;
-        }
-    }
 }
+

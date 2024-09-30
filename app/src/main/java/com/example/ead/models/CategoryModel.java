@@ -1,14 +1,14 @@
 package com.example.ead.models;
 
 public class CategoryModel {
-    private String id;  // Unique ID for each category
+    private String id;
     private String categoryName;
-    private int imageResource;
+    private boolean isActive;
 
-    public CategoryModel(String id, String categoryName, int imageResource) {
+    public CategoryModel(String id, String categoryName, boolean isActive) {
         this.id = id;
         this.categoryName = categoryName;
-        this.imageResource = imageResource;
+        this.isActive = isActive;
     }
 
     // Getter and setter for ID
@@ -21,7 +21,7 @@ public class CategoryModel {
         return categoryName;
     }
 
-    public int getImageResource() {
-        return imageResource;
+    public boolean isActive() {
+        return isActive;
     }
 }

@@ -3,17 +3,17 @@ package com.example.ead.models;
 public class ProductModel {
 
     private String id;
-    private String title;
-//    private String imageUrl;
-    private int imageResource;
+    private String name;
+    private String imgurl;
+    private String description;
     private double price;
     private float rating;
 
-    public ProductModel(String id,String title, int imageResource, double price, float rating) {
+    public ProductModel(String id,String name, String imgurl, String description, double price, float rating) {
         this.id = id;
-        this.title = title;
-//        this.imageUrl = imageUrl;
-        this.imageResource = imageResource;
+        this.name = name;
+        this.imgurl = imgurl;
+        this.description = description;
         this.price = price;
         this.rating = rating;
     }
@@ -22,16 +22,16 @@ public class ProductModel {
         return id;
     }
     // Getters
-    public String getTitle() {
-        return title;
+    public String getName() {
+        return name;
     }
 
-//    public String getImageUrl() {
-//        return imageUrl;
-//    }
+    public String getImgurl() {
+        return imgurl;
+    }
 
-    public int getImageResource() {
-        return imageResource;
+    public String getDescription() {
+        return description;
     }
 
     public double getPrice() {

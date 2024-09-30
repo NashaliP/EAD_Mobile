@@ -19,28 +19,23 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
-        bottomNavigationView.setSelectedItemId(R.id.shop);
+        bottomNavigationView.setSelectedItemId(R.id.shop); // Set default selected item
 
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(MenuItem item) {
-                switch (item.getItemId()){
+                switch (item.getItemId()) {
                     case R.id.shop:
-                        startActivity(new Intent(getApplicationContext(), ShoppingActivity.class));
-                        overridePendingTransition(0,0);
+                        // Stay in this activity
                         return true;
-//                    case R.id.explore:
-//                        startActivity(new Intent(getApplicationContext(),ExploreActivity.class));
-//                        overridePendingTransition(0,0);
-//                        return true;
-////                    case R.id.favorites:
-////                        startActivity(new Intent(getApplicationContext(),FavoritesActivity.class));
-////                        overridePendingTransition(0,0);
-////                        return true;
-//                    case R.id.profile:
-//                        startActivity(new Intent(getApplicationContext(),ProfileActivity.class));
-//                        overridePendingTransition(0,0);
-//                        return true;
+                    case R.id.explore:
+                        startActivity(new Intent(getApplicationContext(), ExploreActivity.class));
+                        overridePendingTransition(0, 0);
+                        return true;
+                    case R.id.profile:
+                        startActivity(new Intent(getApplicationContext(), UserProfileActivity.class));
+                        overridePendingTransition(0, 0);
+                        return true;
                 }
                 return false;
             }
