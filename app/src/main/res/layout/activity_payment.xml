@@ -1,165 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/RVLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PaymentActivity">
+    android:orientation="vertical"
+    android:padding="@dimen/dimen_20"
+    tools:context=".activities.PaymentActivity">
 
     <TextView
-        android:id="@+id/header_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="32dp"
-        android:text="Payment"
-        android:textColor="@color/black"
-        android:textSize="28dp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:text="Select Payment Method"
+        android:textSize="18sp"
+        android:layout_marginBottom="20dp"/>
 
-    <TextView
-        android:id="@+id/subheader_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Step 2"
-        android:textSize="24dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/header_title" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/RVCards"
+    <RadioGroup
+        android:id="@+id/radioGroupPayment"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
+        android:layout_height="wrap_content">
 
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="24dp"
-        android:scrollbars="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/subheader_title">
+        <RadioButton
+            android:id="@+id/radioVisa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Visa"/>
 
-    </androidx.recyclerview.widget.RecyclerView>
+        <RadioButton
+            android:id="@+id/radioMasterCard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="MasterCard"/>
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/button2"
-        style="@style/Widget.Material3.Button.TextButton.Icon"
-        android:layout_width="265dp"
-        android:layout_height="41dp"
-        android:layout_marginTop="8dp"
-        android:text="Add New Card"
-        android:textColor="@color/black"
-        android:textSize="18dp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/RVCards" />
-
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="298dp"
-        android:layout_height="161dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button2"
-        app:srcCompat="@drawable/creditcard2" />
-
-    <TextView
-        android:id="@+id/textNumber1"
-        android:layout_width="163dp"
-        android:layout_height="21dp"
-        android:layout_marginTop="16dp"
-        android:fontFamily="@font/kredit"
-        android:text=""
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="15dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.629"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView2"
-        app:layout_constraintVertical_bias="0.306" />
-
-    <TextView
-        android:id="@+id/textYear"
-        android:layout_width="28dp"
-        android:layout_height="24dp"
-        android:layout_marginStart="3dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:fontFamily="@font/kredit"
-        android:text=""
-        android:textColor="@color/white"
-        android:textSize="15dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.016"
-        app:layout_constraintStart_toEndOf="@+id/textMonth"
-        app:layout_constraintTop_toTopOf="@+id/imageView2"
-        app:layout_constraintVertical_bias="0.834" />
-
-    <TextView
-        android:id="@+id/textMonth"
-        android:layout_width="28dp"
-        android:layout_height="24dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:fontFamily="@font/kredit"
-        android:text=""
-        android:textColor="@color/white"
-        android:textSize="15dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.228"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView2"
-        app:layout_constraintVertical_bias="0.834" />
-
-    <TextView
-        android:id="@+id/textName"
-        android:layout_width="171dp"
-        android:layout_height="20dp"
-        android:layout_marginTop="16dp"
-        android:fontFamily="@font/kredit"
-        android:text=""
-        android:textColor="@color/white"
-        android:textSize="15dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.416"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView2"
-        app:layout_constraintVertical_bias="0.576" />
+    </RadioGroup>
 
     <Button
-        android:id="@+id/button"
-        android:layout_width="0dp"
+        android:id="@+id/btnMakePayment"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="24dp"
-        android:background="@drawable/rounded_button"
-        android:shadowColor="@color/black"
-        android:text="Continue"
-        android:textAllCaps="false"
-        android:textColor="@color/white"
-        android:textSize="18dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+        android:layout_marginTop="20dp"
+        android:text="Make Payment" />
 
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

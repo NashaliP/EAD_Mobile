@@ -35,7 +35,7 @@
 //    private AlertDialog.Builder builder;
 //    private FirebaseDatabase firebaseDatabase;
 //    private DatabaseReference databaseReference;
-//    private ArrayList<CartModel> cartModelArrayList;
+//    private ArrayList<CartItemModel> cartModelArrayList;
 //    private CartitemAdapter cartitemAdapter;
 //
 //
@@ -165,7 +165,7 @@
 //        databaseReference.addChildEventListener(new ChildEventListener() {
 //            @Override
 //            public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-//                cartModelArrayList.add(dataSnapshot.getValue(CartModel.class));
+//                cartModelArrayList.add(dataSnapshot.getValue(CartItemModel.class));
 //                cartitemAdapter.notifyDataSetChanged();
 //            }
 //

@@ -31,7 +31,7 @@
 //    private Button next;
 //    private FirebaseDatabase firebaseDatabase;
 //    private DatabaseReference databaseReference;
-//    private ArrayList<CartModel> cartModelArrayList;
+//    private ArrayList<CartItemModel> cartModelArrayList;
 //    private CartitemAdapter cartitemAdapter;
 //    private String collectionName;
 //    private ProductModel productModel;
@@ -125,7 +125,7 @@
 ////                String price = "1500";
 ////                String ID = name;
 ////
-////                CartModel cartModel = new CartModel(name, size, q, price,ID);
+////                CartItemModel cartModel = new CartItemModel(name, size, q, price,ID);
 ////
 ////                databaseReference.addValueEventListener(new ValueEventListener() {
 ////                    @Override
@@ -166,7 +166,7 @@
 //        databaseReference.addChildEventListener(new ChildEventListener() {
 //            @Override
 //            public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-//                cartModelArrayList.add(dataSnapshot.getValue(CartModel.class));
+//                cartModelArrayList.add(dataSnapshot.getValue(CartItemModel.class));
 //                cartitemAdapter.notifyDataSetChanged();
 //            }
 //

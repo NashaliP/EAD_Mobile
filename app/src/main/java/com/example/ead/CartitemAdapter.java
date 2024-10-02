@@ -17,11 +17,11 @@
 //
 //public class CartitemAdapter extends RecyclerView.Adapter<CartitemAdapter.ViewHolder> {
 //
-//    private ArrayList <CartModel> cartModelArrayList;
+//    private ArrayList <CartItemModel> cartModelArrayList;
 //    private Context context;
 //    int lastPosition = -1;
 //
-//    public CartitemAdapter(ArrayList<CartModel> cartModelArrayList, Context context) {
+//    public CartitemAdapter(ArrayList<CartItemModel> cartModelArrayList, Context context) {
 //        this.cartModelArrayList = cartModelArrayList;
 //        this.context = context;
 //    }
@@ -35,7 +35,7 @@
 //
 //    @Override
 //    public void onBindViewHolder(@NonNull CartitemAdapter.ViewHolder holder, int position) {
-//        CartModel cartModel = cartModelArrayList.get(position);
+//        CartItemModel cartModel = cartModelArrayList.get(position);
 //        int total = Integer.parseInt(cartModel.getPrice())*Integer.parseInt(cartModel.getQuantity());
 //        holder.name.setText(cartModel.getName());
 ////        holder.price.setText(cartModel.getPrice());
@@ -51,7 +51,7 @@
 //    }
 //
 //    public void deleteItem(int position){
-//        CartModel cartModel = cartModelArrayList.get(position);
+//        CartItemModel cartModel = cartModelArrayList.get(position);
 //        String ID = cartModel.getID();
 //        FirebaseDatabase.getInstance().getReference().child("Carts").child(ID).removeValue();
 //    }
