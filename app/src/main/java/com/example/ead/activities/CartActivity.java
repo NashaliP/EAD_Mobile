@@ -13,14 +13,26 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.example.ead.models.ProductModel;
+import com.example.ead.network.ApiClient;
 
 import com.example.ead.R;
 import com.example.ead.adapter.CartAdapter;
+import com.example.ead.models.OrderItemModel;
+import com.example.ead.models.OrderModel;
+import com.example.ead.models.OrderResponse;
 import com.example.ead.persistence.AppDatabase;
 import com.example.ead.persistence.CartDao;
 import com.example.ead.persistence.CartItem;
+import com.example.ead.services.OrderService;
+import com.example.ead.services.ProductService;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import retrofit2.Call;
 
 public class CartActivity extends AppCompatActivity {
     private ActivityResultLauncher<Intent> addressLauncher;
@@ -33,6 +45,7 @@ public class CartActivity extends AppCompatActivity {
     private Button btnPlaceOrder;
     private static final double DELIVERY_CHARGE = 102.00;
     private double subtotal = 0.0;
+    private ProductService productService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +62,10 @@ public class CartActivity extends AppCompatActivity {
         addressArrow = findViewById(R.id.addressArrow);
         paymentArrow = findViewById(R.id.paymentArrow);
         btnPlaceOrder = findViewById(R.id.btnPlaceOrder);
+
+        // Initialize ProductService
+        productService = ApiClient.getRetrofitInstance().create(ProductService.class);
+
 
         cartRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
@@ -91,7 +108,69 @@ public class CartActivity extends AppCompatActivity {
         });
 
         btnPlaceOrder.setOnClickListener(view -> {
-            // Handle order placement logic
+            if (txtAddress.getText().toString().isEmpty() || txtPaymentMethod.getText().toString().isEmpty()) {
+                Toast.makeText(CartActivity.this, "Please enter address and payment method", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            new Thread(() -> {
+                List<CartItem> cartItems = cartDao.getCartItems();
+
+                if (!cartItems.isEmpty()) {
+                    List<OrderItemModel> orderItems = new ArrayList<>();
+
+                    for (CartItem item : cartItems) {
+
+                        // Fetch product details using name
+                        Call<ProductModel> call = productService.getProductByName(item.getProductName());
+                        call.enqueue(new retrofit2.Callback<ProductModel>() {
+                            @Override
+                            public void onResponse(Call<ProductModel> call, retrofit2.Response<ProductModel> response) {
+                                if (response.isSuccessful() && response.body() != null) {
+                                    ProductModel product = response.body();
+
+                                    // Create OrderItemModel without productId
+                                    OrderItemModel orderItem = new OrderItemModel(
+                                            product.getName(),
+                                            product.getVendorId(),
+                                            item.getQuantity(),
+                                            item.getPrice()
+                                    );
+
+                                    orderItems.add(orderItem);
+
+                                    // After processing all cart items, prepare the order model
+                                    if (orderItems.size() == cartItems.size()) {
+                                        OrderModel orderModel = new OrderModel(
+                                                orderItems,
+                                                txtAddress.getText().toString(),
+                                                txtPaymentMethod.getText().toString(),
+                                                subtotal + DELIVERY_CHARGE
+                                        );
+
+                                        sendOrderToServer(orderModel);
+                                    }
+                                } else {
+                                    runOnUiThread(() -> {
+                                        Toast.makeText(CartActivity.this, "Failed to fetch product details", Toast.LENGTH_SHORT).show();
+                                    });
+                                }
+                            }
+
+                            @Override
+                            public void onFailure(Call<ProductModel> call, Throwable t) {
+                                runOnUiThread(() -> {
+                                    Toast.makeText(CartActivity.this, "Failed to fetch product details: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                                });
+                            }
+                        });
+                    }
+                } else {
+                    runOnUiThread(() -> {
+                        Toast.makeText(CartActivity.this, "Cart is empty!", Toast.LENGTH_SHORT).show();
+                    });
+                }
+            }).start();
         });
 
         AppDatabase database = Room.databaseBuilder(getApplicationContext(),
@@ -100,6 +179,47 @@ public class CartActivity extends AppCompatActivity {
 
         loadCartItems();
     }
+
+    private void sendOrderToServer(OrderModel orderModel) {
+        // Use your existing ApiClient instance to get the API service
+        OrderService orderService = ApiClient.getRetrofitInstance().create(OrderService.class);
+
+        // Create the API call for placing an order
+        Call<OrderResponse> call = orderService.createOrder(orderModel);
+
+        // Enqueue the call to handle the async response
+        call.enqueue(new retrofit2.Callback<OrderResponse>() {
+            @Override
+            public void onResponse(Call<OrderResponse> call, retrofit2.Response<OrderResponse> response) {
+                if (response.isSuccessful()) {
+                    runOnUiThread(() -> {
+                        // Notify user that the order was successfully placed
+                        Toast.makeText(CartActivity.this, "Order placed successfully!", Toast.LENGTH_SHORT).show();
+
+                        // Clear the cart (assuming you have a method to clear the cart in your local database)
+                        new Thread(() -> cartDao.clearCart()).start();
+
+                        // Optionally, redirect user to another activity or simply finish the CartActivity
+                        finish();
+                    });
+                } else {
+                    runOnUiThread(() -> {
+                        // Handle the error response and show an error message
+                        Toast.makeText(CartActivity.this, "Order placement failed: " + response.message(), Toast.LENGTH_SHORT).show();
+                    });
+                }
+            }
+
+            @Override
+            public void onFailure(Call<OrderResponse> call, Throwable t) {
+                runOnUiThread(() -> {
+                    // Handle failure (e.g., network error) and notify the user
+                    Toast.makeText(CartActivity.this, "Failed to place order: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                });
+            }
+        });
+    }
+
 
     private void loadCartItems() {
         new Thread(() -> {

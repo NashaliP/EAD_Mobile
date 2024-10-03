@@ -14,4 +14,7 @@ public interface ProductService {
     //get all products
     @GET("Product/getAllProducts")
     Call<List<ProductModel>> getAllProducts();
+
+    @GET("Product/getProductByName/{productName}")
+    Call<ProductModel> getProductByName(@Path("productName") String productName);
 }
