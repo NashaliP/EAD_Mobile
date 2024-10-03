@@ -47,7 +47,10 @@
             android:name=".activities.CartActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.addAddressActivity"
+        android:name=".activities.addAddressActivity"
+        android:exported="false" />
+        <activity
+            android:name=".activities.OrderHistoryActivity"
             android:exported="false" />
         <activity
             android:name=".activities.LandingPageActivity"

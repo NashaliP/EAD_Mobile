@@ -15,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.ead.models.OrderStatus;
 import com.example.ead.models.ProductModel;
 import com.example.ead.network.ApiClient;
 
@@ -29,8 +30,13 @@ import com.example.ead.persistence.CartItem;
 import com.example.ead.services.OrderService;
 import com.example.ead.services.ProductService;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
+import java.util.Map;
 
 import retrofit2.Call;
 
@@ -46,6 +52,7 @@ public class CartActivity extends AppCompatActivity {
     private static final double DELIVERY_CHARGE = 102.00;
     private double subtotal = 0.0;
     private ProductService productService;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -139,13 +146,21 @@ public class CartActivity extends AppCompatActivity {
 
                                     orderItems.add(orderItem);
 
+
                                     // After processing all cart items, prepare the order model
                                     if (orderItems.size() == cartItems.size()) {
+
+                                        // Get current date as a formatted string
+                                        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+                                        String orderDate = sdf.format(new Date());
+
                                         OrderModel orderModel = new OrderModel(
                                                 orderItems,
                                                 txtAddress.getText().toString(),
                                                 txtPaymentMethod.getText().toString(),
-                                                subtotal + DELIVERY_CHARGE
+                                                subtotal + DELIVERY_CHARGE,
+                                                orderDate,
+                                                OrderStatus.Processing
                                         );
 
                                         sendOrderToServer(orderModel);
@@ -181,11 +196,15 @@ public class CartActivity extends AppCompatActivity {
     }
 
     private void sendOrderToServer(OrderModel orderModel) {
-        // Use your existing ApiClient instance to get the API service
+
         OrderService orderService = ApiClient.getRetrofitInstance().create(OrderService.class);
 
+        // Create a map to wrap the orderModel under the "order" key
+        Map<String, OrderModel> orderMap = new HashMap<>();
+        orderMap.put("order", orderModel);
+
         // Create the API call for placing an order
-        Call<OrderResponse> call = orderService.createOrder(orderModel);
+        Call<OrderResponse> call = orderService.createOrder(orderMap);
 
         // Enqueue the call to handle the async response
         call.enqueue(new retrofit2.Callback<OrderResponse>() {

@@ -2,7 +2,7 @@ package com.example.ead.models;
 
 public class OrderResponse {
     public String id;
-    public String message;  // Depending on what your API returns
+    public String message;
 
     public OrderResponse(String id, String message) {
         this.id = id;

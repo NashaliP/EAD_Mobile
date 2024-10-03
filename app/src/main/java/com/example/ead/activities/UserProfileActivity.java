@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.example.ead.R;
@@ -18,6 +20,7 @@ import retrofit2.Response;
 
 public class UserProfileActivity extends AppCompatActivity {
 
+    private ImageView imgOrderHistory;
     private Button btnDeactivateProfile;
     private String userId; // Assume this is set to the current user's ID after login
 
@@ -25,6 +28,17 @@ public class UserProfileActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_profile);
+
+        imgOrderHistory = findViewById(R.id.imgOrderHistory);
+
+        // Set click listener for Order History
+        imgOrderHistory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(UserProfileActivity.this, OrderHistoryActivity.class);
+                startActivity(intent);
+            }
+        });
 
         btnDeactivateProfile = findViewById(R.id.btnDeactivateProfile);
 
