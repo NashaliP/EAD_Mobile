@@ -13,9 +13,7 @@ import retrofit2.http.POST;
 
 public interface OrderService {
     @POST("Order/createOrder")
-//    Call<OrderResponse> createOrder(@Body OrderModel order);
-    Call<OrderResponse> createOrder(@Body Map<String, OrderModel> orderMap);
-
+    Call<OrderResponse> createOrder(@Body OrderModel order);
 
     @GET("Order/getAllOrders")
     Call<List<OrderModel>> getAllOrders();

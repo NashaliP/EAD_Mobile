@@ -23,77 +23,55 @@
                 android:layout_height="match_parent"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
+                android:layout_marginBottom="14dp"
                 android:layout_marginEnd="16dp">
 
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="191dp"
+                    android:layout_height="31dp"
+                    android:layout_marginEnd="136dp"
+
+                    android:text="Welcome, user"
+                    android:textColor="@color/black"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/cartBtn"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="1.0" />
+
                 <ImageView
-                    android:id="@+id/logoutBtn"
+                    android:id="@+id/cartBtn"
                     android:layout_width="29dp"
                     android:layout_height="36dp"
 
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/cart" />
+                    app:srcCompat="@drawable/ic_outline_shopping_cart_24" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <LinearLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="18dp"
-                android:layout_marginEnd="16dp"
-                android:orientation="horizontal">
+                android:layout_height="180dp">
 
                 <ImageView
-                    android:id="@+id/filterBtn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="50dp"
-                    android:layout_marginStart="6dp"
-                    android:layout_marginEnd="6dp"
-                    android:background="@drawable/grey_background"
-                    android:padding="12dp"
-
-                    app:srcCompat="@drawable/filter" />
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="@drawable/grey_background"
-                    android:orientation="horizontal">
-
-                    <EditText
-                        android:id="@+id/editTextText"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:background="@color/grey"
-                        android:ems="10"
-                        android:hint="search..."
-                        android:inputType="text"
-                        android:padding="8dp" />
-
-                    <ImageView
-                        android:id="@+id/searchBtn"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:padding="4dp"
-
-                        app:srcCompat="?android:attr/actionModeWebSearchDrawable" />
-                </LinearLayout>
-
-                <ImageView
-                    android:id="@+id/cartBtn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="50dp"
-                    android:layout_marginStart="6dp"
-                    android:background="@drawable/grey_background"
-                    android:padding="12dp"
-
-                    app:srcCompat="@drawable/ic_outline_shopping_cart_24" />
-            </LinearLayout>
+                    android:id="@+id/imageView3"
+                    android:layout_width="401dp"
+                    android:layout_height="158dp"
+                    android:layout_marginTop="8dp"
+                    android:paddingStart="14dp"
+                    android:paddingEnd="14dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/banner_1"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.498"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -116,7 +94,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:layout_marginStart="8dp"
-                        android:src="@drawable/ic_baseline_shopping_bag_24" />
+                        android:src="@drawable/categories" />
 
                     <Spinner
                         android:id="@+id/spinnerCategories"
@@ -129,54 +107,7 @@
                         android:spinnerMode="dropdown" />
                 </LinearLayout>
 
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.3333"
-                    android:background="@drawable/grey_background"
-                    android:orientation="horizontal">
 
-                    <ImageView
-                        android:id="@+id/accountCircle"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginStart="8dp"
-                        android:src="@drawable/ic_outline_account_circle_24" />
-
-                    <Spinner
-                        android:id="@+id/spinner2"
-                        android:layout_width="match_parent"
-                        android:layout_height="48dp"
-                        android:layout_marginStart="4dp"
-                        android:layout_weight="1"
-                        android:background="@null" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="40dp"
-                    android:layout_marginStart="8dp"
-                    android:layout_weight="0.3333"
-                    android:background="@drawable/grey_background"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:id="@+id/newIcon3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginStart="8dp"
-                        android:src="@drawable/ic_baseline_arrow_back_ios_24" />
-
-                    <Spinner
-                        android:id="@+id/spinner3"
-                        android:layout_width="match_parent"
-                        android:layout_height="48dp"
-                        android:layout_marginStart="4dp"
-                        android:layout_weight="1"
-                        android:background="@null" />
-                </LinearLayout>
             </LinearLayout>
 
             <!-- Categories Section -->
@@ -191,8 +122,8 @@
                     android:id="@+id/lblChooseCategory"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Featured Categories"
-                    android:textSize="22sp"
+                    android:text="Categories"
+                    android:textSize="20sp"
                     android:textColor="@color/black"
                     android:textStyle="bold"
                     android:paddingBottom="8dp" />
@@ -202,34 +133,31 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:columnCount="4"
-                    android:rowCount="2"
-                    android:padding="8dp"
-
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:padding="2dp">
 
                     <!-- Category 1: shirt -->
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
-                        android:padding="8dp"
-                        android:gravity="center">
+                        android:padding="6dp">
 
                         <ImageView
                             android:layout_width="64dp"
                             android:layout_height="64dp"
-                            android:background="#000000"
+                            android:background="@drawable/cat_1_bg"
                             android:padding="12dp"
-                            android:src="@drawable/shirt" />
+                            android:src="@drawable/jacket" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Shirts"
-                            android:textColor="@color/black"
-                            android:textSize="14sp"
                             android:layout_gravity="center_horizontal"
-                            android:paddingTop="8dp" />
+                            android:paddingTop="8dp"
+                            android:text="Jackets"
+                            android:textColor="@color/black"
+                            android:textSize="14sp" />
                     </LinearLayout>
 
                     <!-- Category 2: tshirt -->
@@ -237,23 +165,23 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
-                        android:padding="8dp"
-                        android:gravity="center">
+                        android:padding="8dp">
 
                         <ImageView
                             android:layout_width="64dp"
                             android:layout_height="64dp"
-                            android:background="#000000"
+                            android:background="@drawable/cat_1_bg"
                             android:padding="12dp"
-                            android:src="@drawable/tshirt"/>
+                            android:src="@drawable/tshirt" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="T-shirts"
-                            android:textSize="14sp"
                             android:layout_gravity="center_horizontal"
-                            android:paddingTop="8dp" />
+                            android:paddingTop="8dp"
+                            android:text="T-shirts"
+                            android:textColor="@color/black"
+                            android:textSize="14sp" />
                     </LinearLayout>
 
                     <!-- Category 3: skirt -->
@@ -261,25 +189,24 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
-                        android:padding="8dp"
-                        android:gravity="center">
+                        android:padding="8dp">
 
                         <ImageView
                             android:layout_width="64dp"
                             android:layout_height="64dp"
-                            android:background="#000000"
+                            android:background="@drawable/cat_1_bg"
                             android:padding="12dp"
                             android:src="@drawable/skirt" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Skirts"
-                            android:textSize="14sp"
                             android:layout_gravity="center_horizontal"
-                            android:paddingTop="8dp" />
+                            android:paddingTop="8dp"
+                            android:text="Skirts"
+                            android:textColor="@color/black"
+                            android:textSize="14sp" />
                     </LinearLayout>
-
 
 
                     <!-- Category 4: jeans -->
@@ -287,120 +214,25 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
-                        android:padding="8dp"
-                        android:gravity="center">
+                        android:padding="8dp">
 
                         <ImageView
                             android:layout_width="64dp"
                             android:layout_height="64dp"
-                            android:background="#000000"
+                            android:background="@drawable/cat_1_bg"
                             android:padding="12dp"
-                            android:src="@drawable/jeans" />
+                            android:src="@drawable/shorts" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Jeans"
-                            android:textSize="14sp"
                             android:layout_gravity="center_horizontal"
-                            android:paddingTop="8dp" />
+                            android:paddingTop="8dp"
+                            android:text="Shorts"
+                            android:textColor="@color/black"
+                            android:textSize="14sp" />
                     </LinearLayout>
 
-                    <!-- Category 5: swimsuit -->
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:padding="8dp"
-                        android:gravity="center">
-
-                        <ImageView
-                            android:layout_width="64dp"
-                            android:layout_height="64dp"
-                            android:background="#000000"
-                            android:padding="12dp"
-                            android:src="@drawable/swimsuit" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Swimsuits"
-                            android:textSize="14sp"
-                            android:layout_gravity="center_horizontal"
-                            android:paddingTop="8dp" />
-                    </LinearLayout>
-
-                    <!-- Category 6: jacket -->
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:padding="8dp"
-                        android:gravity="center">
-
-                        <ImageView
-                            android:layout_width="64dp"
-                            android:layout_height="64dp"
-                            android:background="#000000"
-                            android:padding="12dp"
-                            android:src="@drawable/jacket" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Jackets"
-                            android:textSize="14sp"
-                            android:layout_gravity="center_horizontal"
-                            android:paddingTop="8dp" />
-                    </LinearLayout>
-
-                    <!-- Category 6: underwear -->
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:padding="8dp"
-                        android:gravity="center">
-
-                        <ImageView
-                            android:layout_width="64dp"
-                            android:layout_height="64dp"
-                            android:background="#000000"
-                            android:padding="12dp"
-                            android:src="@drawable/underwear" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Underwear"
-                            android:textSize="14sp"
-                            android:layout_gravity="center_horizontal"
-                            android:paddingTop="8dp" />
-                    </LinearLayout>
-
-                    <!-- Category 6: dress -->
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:padding="8dp"
-                        android:gravity="center">
-
-                        <ImageView
-                            android:layout_width="64dp"
-                            android:layout_height="64dp"
-                            android:background="#000000"
-                            android:padding="12dp"
-                            android:src="@drawable/dress" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Dress"
-                            android:textSize="14sp"
-                            android:layout_gravity="center_horizontal"
-                            android:paddingTop="8dp" />
-                    </LinearLayout>
 
                 </GridLayout>
             </LinearLayout>
@@ -409,7 +241,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="24dp"
+
                 android:layout_marginEnd="16dp"
                 android:orientation="horizontal">
 
@@ -420,7 +252,7 @@
                     android:layout_weight="1"
                     android:text="Featured Products"
                     android:textColor="@color/black"
-                    android:textSize="22sp"
+                    android:textSize="20sp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -434,16 +266,6 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="300dp">
-
-                <ProgressBar
-                    android:id="@+id/progressBarFeaturedProducts"
-                    style="?android:attr/progressBarStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="@+id/featuredProductsRecyclerView"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/featuredProductsRecyclerView"

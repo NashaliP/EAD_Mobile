@@ -58,6 +58,11 @@ public class ProductsListAdapter extends RecyclerView.Adapter<ProductsListAdapte
         });
     }
 
+    public void filterList(ArrayList<ProductModel> filteredList) {
+        listProducts = filteredList;
+        notifyDataSetChanged();
+    }
+
     @Override
     public int getItemCount() {
         // Return the number of products

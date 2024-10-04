@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ead.R;
 import com.example.ead.adapter.ProductsListAdapter;
+import com.example.ead.adapter.ShopProductAdapter;
 import com.example.ead.models.CategoryModel;
 import com.example.ead.models.ProductModel;
 import com.example.ead.network.ApiClient;
@@ -35,8 +36,8 @@ public class ShoppingActivity extends AppCompatActivity {
 
     //featured products
     private RecyclerView featuredProductsRecyclerView;
-    private ProductsListAdapter productAdapter;
-    private List<ProductModel> productModel;
+    private ShopProductAdapter productAdapter;
+    private List<ProductModel> productList;
 
     //categories
     private Spinner spinnerCategories;
@@ -85,12 +86,9 @@ public class ShoppingActivity extends AppCompatActivity {
         featuredProductsRecyclerView = findViewById(R.id.featuredProductsRecyclerView);
         featuredProductsRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
 
-        // Fetch products
-//        productModel = fetchProducts();
+        // Load dummy products into the RecyclerView
+        loadDummyData();
 
-        // Set Adapter
-        productAdapter = new ProductsListAdapter(this,productModel);
-        featuredProductsRecyclerView.setAdapter(productAdapter);
 
         // Setup the adapter with an empty list (will populate later)
         categoryAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, new ArrayList<>());
@@ -126,16 +124,20 @@ public class ShoppingActivity extends AppCompatActivity {
         });
     }
 
-    // Fetch products from some data source
-//    private List<ProductModel> fetchProducts() {
-//        List<ProductModel> products = new ArrayList<>();
-//
-//        products.add(new ProductModel("1","Product 1", R.drawable.image1, 10.99, 4.5f));
-//        products.add(new ProductModel("2","Product 2", R.drawable.image2, 15.49, 3.9f));
-//        products.add(new ProductModel("3","Product 3", R.drawable.image3, 7.99, 4.7f));
-//
-//        return products;
-//    }
+    // Populate static dummy data for products
+    // Load dummy data for featured products
+    private void loadDummyData() {
+        productList = new ArrayList<>();
+
+        // Adding dummy products to the list
+        productList.add(new ProductModel("1", "Jacket", "https://firebasestorage.googleapis.com/v0/b/ead-vendora-30b06.appspot.com/o/products%2Ftestshirt.png?alt=media&token=b293727b-5771-42cf-a64e-ffe0d8e7340f", "Stylish Jacket", 59.99, 4.5f, "vendor1"));
+        productList.add(new ProductModel("2", "T-shirt", "https://firebasestorage.googleapis.com/v0/b/ead-vendora-30b06.appspot.com/o/products%2Fdress3.png?alt=media&token=3751d132-d515-4256-acb7-041d4fbd21ba", "Cool T-shirt", 19.99, 4.0f, "vendor2"));
+        productList.add(new ProductModel("3", "Skirt", "https://firebasestorage.googleapis.com/v0/b/ead-vendora-30b06.appspot.com/o/products%2Fdress2.png?alt=media&token=0dad68eb-8356-4c67-8bba-2c67600ff128", "Trendy Skirt", 29.99, 4.3f, "vendor3"));
+
+        // Set up the adapter and attach it to the RecyclerView
+        productAdapter = new ShopProductAdapter(this, productList);
+        featuredProductsRecyclerView.setAdapter(productAdapter);
+    }
 
     // Fetch categories dynamically from the API
     private void fetchCategories() {

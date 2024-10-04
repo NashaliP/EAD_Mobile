@@ -9,6 +9,7 @@ import androidx.room.Room;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -163,6 +164,7 @@ public class CartActivity extends AppCompatActivity {
                                                 OrderStatus.Processing
                                         );
 
+
                                         sendOrderToServer(orderModel);
                                     }
                                 } else {
@@ -200,11 +202,11 @@ public class CartActivity extends AppCompatActivity {
         OrderService orderService = ApiClient.getRetrofitInstance().create(OrderService.class);
 
         // Create a map to wrap the orderModel under the "order" key
-        Map<String, OrderModel> orderMap = new HashMap<>();
-        orderMap.put("order", orderModel);
+//        Map<String, OrderModel> orderMap = new HashMap<>();
+//        orderMap.put("order", orderModel);
 
         // Create the API call for placing an order
-        Call<OrderResponse> call = orderService.createOrder(orderMap);
+        Call<OrderResponse> call = orderService.createOrder(orderModel);
 
         // Enqueue the call to handle the async response
         call.enqueue(new retrofit2.Callback<OrderResponse>() {
