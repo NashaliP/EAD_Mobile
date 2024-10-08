@@ -2,7 +2,6 @@ package com.example.ead.adapter;
 
 import android.app.Activity;
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +12,6 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
 import com.example.ead.R;
 import com.example.ead.activities.CartActivity;
 import com.example.ead.persistence.CartDao;
@@ -105,10 +103,10 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
 
         public CartViewHolder(@NonNull View itemView) {
             super(itemView);
-            txtCartItemName = itemView.findViewById(R.id.txtCartItemName);
-            txtPricePerItem = itemView.findViewById(R.id.txtPricePerItem);
+            txtCartItemName = itemView.findViewById(R.id.tvItemName);
+            txtPricePerItem = itemView.findViewById(R.id.tvItemQty);
             txtCartItemQty = itemView.findViewById(R.id.txtCartItemQty);
-            txtTotalPerItem = itemView.findViewById(R.id.txtTotalPerItem);
+            txtTotalPerItem = itemView.findViewById(R.id.tvItemTotal);
             imgItemCart = itemView.findViewById(R.id.imgItemCart);
         }
     }

@@ -12,9 +12,11 @@ import retrofit2.http.GET;
 import retrofit2.http.POST;
 
 public interface OrderService {
+    //customer places order endpoint
     @POST("Order/createOrder")
     Call<OrderResponse> createOrder(@Body OrderModel order);
 
+    //fetch all orders
     @GET("Order/getAllOrders")
     Call<List<OrderModel>> getAllOrders();
 }

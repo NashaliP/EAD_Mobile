@@ -32,9 +32,9 @@
                     android:layout_height="31dp"
                     android:layout_marginEnd="136dp"
 
-                    android:text="Welcome, user"
+                    android:text="Welcome!"
                     android:textColor="@color/black"
-                    android:textSize="22sp"
+                    android:textSize="24sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/cartBtn"
@@ -62,8 +62,8 @@
                     android:layout_width="401dp"
                     android:layout_height="158dp"
                     android:layout_marginTop="8dp"
-                    android:paddingStart="14dp"
-                    android:paddingEnd="14dp"
+                    android:paddingStart="8dp"
+                    android:paddingEnd="8dp"
                     android:scaleType="centerCrop"
                     android:src="@drawable/banner_1"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -148,7 +148,7 @@
                             android:layout_height="64dp"
                             android:background="@drawable/cat_1_bg"
                             android:padding="12dp"
-                            android:src="@drawable/jacket" />
+                            android:src="@drawable/shirttest" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -172,7 +172,7 @@
                             android:layout_height="64dp"
                             android:background="@drawable/cat_1_bg"
                             android:padding="12dp"
-                            android:src="@drawable/tshirt" />
+                            android:src="@drawable/tshirttest" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -196,7 +196,7 @@
                             android:layout_height="64dp"
                             android:background="@drawable/cat_1_bg"
                             android:padding="12dp"
-                            android:src="@drawable/skirt" />
+                            android:src="@drawable/skirttest" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -209,7 +209,7 @@
                     </LinearLayout>
 
 
-                    <!-- Category 4: jeans -->
+                    <!-- Category 4: shorts -->
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -221,7 +221,7 @@
                             android:layout_height="64dp"
                             android:background="@drawable/cat_1_bg"
                             android:padding="12dp"
-                            android:src="@drawable/shorts" />
+                            android:src="@drawable/shorttest" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -232,7 +232,6 @@
                             android:textColor="@color/black"
                             android:textSize="14sp" />
                     </LinearLayout>
-
 
                 </GridLayout>
             </LinearLayout>

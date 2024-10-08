@@ -19,7 +19,7 @@ public class CartItem {
 
     }
 
-    // Getters and Setters (optional)
+    // Getters and Setters
     public int getId() {
         return id;
     }

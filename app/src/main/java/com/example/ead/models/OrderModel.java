@@ -1,8 +1,9 @@
 package com.example.ead.models;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class OrderModel {
+public class OrderModel implements Serializable {
     public List<OrderItemModel> items;
     public String shippingAddress;
     public String paymentMethod;

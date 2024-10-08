@@ -11,7 +11,6 @@ public class CategoryModel {
         this.isActive = isActive;
     }
 
-    // Getter and setter for ID
     // Getters and Setters
     public String getId() {
         return id;

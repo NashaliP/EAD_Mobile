@@ -46,7 +46,10 @@ public class SignupPage extends AppCompatActivity {
         });
 
         btnRegisterSignup = findViewById(R.id.btnRegisterSignup);
+
+        // Handles the signup button click
         btnRegisterSignup.setOnClickListener(new View.OnClickListener() {
+            // Validates user input and initiates signup process if valid.
             @Override
             public void onClick(View view) {
                 String textEmail = etEmail.getText().toString();
@@ -71,6 +74,7 @@ public class SignupPage extends AppCompatActivity {
                     Call<UserResponse> call = userService.signupUser(user);
 
                     call.enqueue(new Callback<UserResponse>() {
+                        // Handles the response from the signup API call
                         @Override
                         public void onResponse(Call<UserResponse> call, Response<UserResponse> response) {
                             if (response.isSuccessful()) {
@@ -92,7 +96,7 @@ public class SignupPage extends AppCompatActivity {
                                 }
                             }
                         }
-
+                        // Handles failure of the API call
                         @Override
                         public void onFailure(Call<UserResponse> call, Throwable t) {
                             Toast.makeText(SignupPage.this, "An error occurred: " + t.getMessage(), Toast.LENGTH_SHORT).show();

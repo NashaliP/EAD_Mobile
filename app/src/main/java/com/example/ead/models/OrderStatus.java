@@ -2,7 +2,7 @@ package com.example.ead.models;
 
 public enum OrderStatus {
     Processing,
-    PartiallyDelivered,
+    Partially_Delivered,
     Delivered,
-    Canceled
+    Cancelled
 }

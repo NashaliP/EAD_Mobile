@@ -69,7 +69,7 @@ public class OngoingOrdersFragment extends Fragment {
     private void filterOngoingOrders(List<OrderModel> allOrders) {
         ongoingOrders = new ArrayList<>();
         for (OrderModel order : allOrders) {
-            if (order.status == OrderStatus.Processing || order.status == OrderStatus.PartiallyDelivered) {
+            if (order.status == OrderStatus.Processing || order.status == OrderStatus.Partially_Delivered) {
                 ongoingOrders.add(order);
             }
         }

@@ -9,7 +9,6 @@ import androidx.room.Room;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -34,10 +33,8 @@ import com.example.ead.services.ProductService;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
-import java.util.Map;
 
 import retrofit2.Call;
 
@@ -50,7 +47,7 @@ public class CartActivity extends AppCompatActivity {
     private TextView txtCartEmpty,txtSubtotal, txtDelivery, txtTotal,txtAddress, txtPaymentMethod;
     private ImageView addressArrow, paymentArrow;
     private Button btnPlaceOrder;
-    private static final double DELIVERY_CHARGE = 102.00;
+    private static final double DELIVERY_CHARGE = 22.00;
     private double subtotal = 0.0;
     private ProductService productService;
 
@@ -64,9 +61,9 @@ public class CartActivity extends AppCompatActivity {
         txtCartEmpty = findViewById(R.id.txtCartEmpty);
         txtSubtotal = findViewById(R.id.txtSubtotal);
         txtDelivery = findViewById(R.id.txtDelivery);
-        txtTotal = findViewById(R.id.txtTotal);
-        txtAddress = findViewById(R.id.txtAddress);
-        txtPaymentMethod = findViewById(R.id.txtPayment);
+        txtTotal = findViewById(R.id.tvOrderTotal);
+        txtAddress = findViewById(R.id.tvAddress);
+        txtPaymentMethod = findViewById(R.id.tvPayment);
         addressArrow = findViewById(R.id.addressArrow);
         paymentArrow = findViewById(R.id.paymentArrow);
         btnPlaceOrder = findViewById(R.id.btnPlaceOrder);

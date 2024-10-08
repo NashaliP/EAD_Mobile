@@ -1,8 +1,11 @@
 package com.example.ead.activities;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -11,6 +14,7 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.example.ead.R;
+import com.example.ead.models.User;
 import com.example.ead.network.ApiClient;
 import com.example.ead.services.UserService;
 
@@ -20,14 +24,31 @@ import retrofit2.Response;
 
 public class UserProfileActivity extends AppCompatActivity {
 
+    private UserService userService;
+    private String userEmail;
     private ImageView imgOrderHistory;
     private Button btnDeactivateProfile;
-    private String userId; // Assume this is set to the current user's ID after login
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_profile);
+
+        // Initialize Retrofit service
+        userService = ApiClient.getRetrofitInstance().create(UserService.class);
+
+        // Retrieve user email
+        userEmail = getUserEmail();
+
+        btnDeactivateProfile = findViewById(R.id.btnDeactivateProfile);
+
+        // Handle button click to deactivate account
+        btnDeactivateProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showConfirmationDialog(); // Show confirmation dialog
+            }
+        });
 
         imgOrderHistory = findViewById(R.id.imgOrderHistory);
 
@@ -40,33 +61,54 @@ public class UserProfileActivity extends AppCompatActivity {
             }
         });
 
-        btnDeactivateProfile = findViewById(R.id.btnDeactivateProfile);
+    }
+    private String getUserEmail() {
+        SharedPreferences sharedPreferences = getSharedPreferences("UserPrefs", MODE_PRIVATE);
+        return sharedPreferences.getString("user_email", null); // Retrieve user email
+    }
 
-        btnDeactivateProfile.setOnClickListener(new View.OnClickListener() {
+    private void showConfirmationDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Confirm Deactivation");
+        builder.setMessage("Are you sure you want to deactivate your account? This action cannot be undone.");
+
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                deactivateUserAccount();
+            public void onClick(DialogInterface dialog, int which) {
+                deactivateAccount(); // Call the deactivate function
             }
         });
 
-    }
-    private void deactivateUserAccount() {
-        UserService userService = ApiClient.getRetrofitInstance().create(UserService.class);
-        Call<Void> call = userService.deactivateUser(userId);
-
-        call.enqueue(new Callback<Void>() {
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
             @Override
-            public void onResponse(Call<Void> call, Response<Void> response) {
-                if (response.isSuccessful()) {
-                    Toast.makeText(UserProfileActivity.this, "Account deactivated successfully", Toast.LENGTH_SHORT).show();
-                    // Optionally, redirect to login or main activity
-                    Intent intent = new Intent(UserProfileActivity.this, LoginPage.class);
-                    startActivity(intent);
-                    finish(); // Close UserProfileActivity
-                } else {
-                    Toast.makeText(UserProfileActivity.this, "Failed to deactivate account", Toast.LENGTH_SHORT).show();
-                }
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss(); // Dismiss the dialog
             }
+        });
+
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+    }
+
+
+            private void deactivateAccount() {
+                String email = getUserEmail();
+                Call<Void> call = userService.deactivateUser(email);
+                call.enqueue(new Callback<Void>() {
+                    @Override
+                    public void onResponse(Call<Void> call, Response<Void> response) {
+                        if (response.isSuccessful()) {
+                            Toast.makeText(UserProfileActivity.this, "Account deactivated successfully!", Toast.LENGTH_SHORT).show();
+                            // Navigate back to LoginPage
+                            Intent intent = new Intent(UserProfileActivity.this, LoginPage.class);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK); // Clear back stack
+                            startActivity(intent);
+                            finish(); // Close UserProfileActivity
+                        } else {
+                            Toast.makeText(UserProfileActivity.this, "Failed to deactivate account. Please try again.", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+
 
             @Override
             public void onFailure(Call<Void> call, Throwable t) {

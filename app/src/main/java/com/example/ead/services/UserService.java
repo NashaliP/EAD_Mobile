@@ -6,9 +6,11 @@ import com.example.ead.models.UserResponse;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.POST;
+import retrofit2.http.PUT;
 import retrofit2.http.Path;
 
 public interface UserService {
+    //user signup endpoint
     @POST("User/signup")
     Call<UserResponse> signupUser(@Body User user);
 
@@ -17,6 +19,6 @@ public interface UserService {
     Call<UserResponse> loginUser(@Body User user);
 
     // Deactivate account endpoint
-    @POST("User/{userId}/deactivate")
-    Call<Void> deactivateUser(@Path("userId") String userId);
+    @PUT("User/deactivateUser")
+    Call<Void> deactivateUser(@Body String email);
 }
