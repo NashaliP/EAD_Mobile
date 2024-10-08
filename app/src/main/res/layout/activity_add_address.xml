@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".addAddressActivity">
+    tools:context=".activities.addAddressActivity">
+
 
     <TextView
         android:id="@+id/header_title"
@@ -12,36 +13,19 @@
         android:layout_height="wrap_content"
         android:text="Add Address"
         android:textColor="@color/black"
-        android:textSize="35dp"
+        android:textSize="28sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.076"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.023" />
-
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/editName"
-        android:layout_width="380dp"
-        android:layout_height="42dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="25dp"
-        android:ems="10"
-        android:hint="Name"
-        android:inputType="text"
-        android:text=""
-        app:layout_constraintBottom_toTopOf="@+id/textView2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.483"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/header_title"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.091" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/editAddressLine2"
-        android:layout_width="380dp"
-        android:layout_height="42dp"
+        android:layout_width="350dp"
+        android:layout_height="48dp"
         android:layout_marginBottom="25dp"
         android:ems="10"
         android:hint="Enter address line 2"
@@ -53,22 +37,22 @@
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/editCity"
-        android:layout_width="380dp"
-        android:layout_height="42dp"
-        android:layout_marginBottom="260dp"
+        android:layout_width="350dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="432dp"
         android:ems="10"
         android:hint="Enter the city"
         android:inputType="text"
         android:text=""
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.516"
+        app:layout_constraintHorizontal_bias="0.483"
         app:layout_constraintStart_toStartOf="parent" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/editAddressLine1"
-        android:layout_width="380dp"
-        android:layout_height="42dp"
+        android:layout_width="350dp"
+        android:layout_height="48dp"
         android:layout_marginBottom="25dp"
         android:ems="10"
         android:hint="Enter address line 1"
@@ -80,26 +64,16 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Name"
-        app:layout_constraintBottom_toTopOf="@+id/editName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.053"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/header_title"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Address Line 1"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/editAddressLine1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.062"
+        app:layout_constraintHorizontal_bias="0.1"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
@@ -107,9 +81,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Address Line 2"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/editAddressLine2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.062"
+        app:layout_constraintHorizontal_bias="0.1"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
@@ -117,15 +94,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="City"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/editCity"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.051"
+        app:layout_constraintHorizontal_bias="0.082"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/addAddress"
-        android:layout_width="383dp"
-        android:layout_height="47dp"
+        android:id="@+id/btnAddAddress"
+        android:layout_width="337dp"
+        android:layout_height="51dp"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
         android:background="@drawable/rounded_button"
@@ -135,9 +115,9 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.571"
+        app:layout_constraintHorizontal_bias="0.428"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editCity"
-        app:layout_constraintVertical_bias="0.823" />
+        app:layout_constraintVertical_bias="0.339" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

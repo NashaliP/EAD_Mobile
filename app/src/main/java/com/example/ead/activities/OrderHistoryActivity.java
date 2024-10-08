@@ -8,10 +8,8 @@ import com.example.ead.R;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.example.ead.adapter.OrdersPagerAdapter;
-import com.example.ead.models.Order;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
-import com.example.ead.adapter.OrderAdapter;
 
 public class OrderHistoryActivity extends AppCompatActivity {
 
@@ -41,7 +39,7 @@ public class OrderHistoryActivity extends AppCompatActivity {
                     tab.setText("Completed");
                     break;
                 case 2:
-                    tab.setText("Canceled");
+                    tab.setText("Cancelled");
                     break;
             }
         }).attach();

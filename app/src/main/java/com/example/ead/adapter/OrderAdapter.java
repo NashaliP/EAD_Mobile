@@ -8,15 +8,15 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ead.R;
-import com.example.ead.models.Order;
+import com.example.ead.models.OrderModel;
 
 import java.util.List;
 
 public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrderViewHolder> {
 
-    private List<Order> orderList;
+    private List<OrderModel> orderList;
 
-    public OrderAdapter(List<Order> orderList) {
+    public OrderAdapter(List<OrderModel> orderList) {
         this.orderList = orderList;
     }
 
@@ -30,11 +30,11 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrderViewHol
 
     @Override
     public void onBindViewHolder(@NonNull OrderViewHolder holder, int position) {
-        Order order = orderList.get(position);
-        holder.tvOrderID.setText("Order #" + order.getOrderId());
-        holder.tvOrderDate.setText("Order Date: " + order.getOrderDate());
-        holder.tvOrderTotal.setText("Total: " + order.getTotalAmount());
-        holder.tvOrderStatus.setText("Status: " + order.getStatus());
+        OrderModel order = orderList.get(position);
+        holder.tvOrderTotal.setText(String.valueOf(order.totalAmount));
+        holder.tvOrderDate.setText(order.orderDate);
+        holder.tvOrderStatus.setText(order.status.name());
+        // Additional fields like items or shipping address can also be set here
     }
 
     @Override
@@ -43,13 +43,12 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrderViewHol
     }
 
     public static class OrderViewHolder extends RecyclerView.ViewHolder {
-        TextView tvOrderID, tvOrderDate, tvOrderTotal, tvOrderStatus;
+        TextView tvOrderDate, tvOrderTotal, tvOrderStatus;
 
         public OrderViewHolder(@NonNull View itemView) {
             super(itemView);
-            tvOrderID = itemView.findViewById(R.id.tvOrderID);
-            tvOrderDate = itemView.findViewById(R.id.tvOrderDate);
             tvOrderTotal = itemView.findViewById(R.id.tvOrderTotal);
+            tvOrderDate = itemView.findViewById(R.id.tvOrderDate);
             tvOrderStatus = itemView.findViewById(R.id.tvOrderStatus);
         }
     }

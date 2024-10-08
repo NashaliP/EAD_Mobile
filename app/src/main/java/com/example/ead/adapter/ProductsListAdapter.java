@@ -46,7 +46,6 @@ public class ProductsListAdapter extends RecyclerView.Adapter<ProductsListAdapte
         // Set the data in the corresponding views
         holder.productTitleTxt.setText(product.getName());
         holder.textView30.setText("$" + product.getPrice());
-        holder.ratingTxt.setText(String.valueOf(product.getRating()));
 
         // Load product image using Picasso/Glide or any image loading library
         Glide.with(context).load(product.getImgurl()).into(holder.imageView4);
@@ -59,6 +58,11 @@ public class ProductsListAdapter extends RecyclerView.Adapter<ProductsListAdapte
         });
     }
 
+    public void filterList(ArrayList<ProductModel> filteredList) {
+        listProducts = filteredList;
+        notifyDataSetChanged();
+    }
+
     @Override
     public int getItemCount() {
         // Return the number of products
@@ -68,7 +72,7 @@ public class ProductsListAdapter extends RecyclerView.Adapter<ProductsListAdapte
     // ViewHolder class for binding the views of the product card
     public static class ProductsViewHolder extends RecyclerView.ViewHolder {
 
-        TextView productTitleTxt, ratingTxt, textView30;
+        TextView productTitleTxt,textView30;
         ImageView imageView4, imageView6;
         TextView textView29; // For the "+" button
 
@@ -76,10 +80,8 @@ public class ProductsListAdapter extends RecyclerView.Adapter<ProductsListAdapte
             super(itemView);
 
             productTitleTxt = itemView.findViewById(R.id.productTitleTxt);
-            ratingTxt = itemView.findViewById(R.id.ratingTxt);
             textView30 = itemView.findViewById(R.id.textView30);
             imageView4 = itemView.findViewById(R.id.imageView4);
-            imageView6 = itemView.findViewById(R.id.imageView6); // Rating star icon
 //            textView29 = itemView.findViewById(R.id.textView29); // "+" button
         }
     }

@@ -10,8 +10,11 @@
         android:id="@+id/txtCartEmpty"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Your cart is empty"
+        android:text="Your cart is empty nigga"
         android:visibility="gone"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -54,6 +57,8 @@
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/cartRV"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="15dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
 
@@ -74,30 +79,6 @@
                 android:background="@drawable/grey_background">
 
                 <TextView
-                    android:id="@+id/textView27"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="8dp"
-                    android:text="Total Tax"
-                    android:textColor="@color/black"
-                    android:textSize="16sp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView22" />
-
-                <TextView
-                    android:id="@+id/txtTax"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="16dp"
-                    android:text="-"
-                    android:textColor="@color/black"
-                    app:layout_constraintBottom_toBottomOf="@+id/textView27"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/textView27"
-                    app:layout_constraintVertical_bias="1.0" />
-
-                <TextView
                     android:id="@+id/txtDelivery"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -113,7 +94,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="24dp"
                     android:text="Delivery"
                     android:textColor="@color/black"
                     android:textSize="16sp"
@@ -148,17 +129,19 @@
                     android:layout_width="0dp"
                     android:layout_height="1dp"
                     android:layout_marginStart="16dp"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="12dp"
                     android:layout_marginEnd="16dp"
                     android:background="#ABABAB"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView27" />
+                    app:layout_constraintTop_toBottomOf="@+id/textView22" />
 
                 <TextView
                     android:id="@+id/textView28"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
                     android:layout_marginTop="16dp"
                     android:layout_marginBottom="16dp"
                     android:text="Total"
@@ -166,7 +149,7 @@
                     android:textSize="18sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="@+id/textView27"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/view4" />
 
                 <TextView
@@ -187,9 +170,9 @@
                 android:id="@+id/textView32"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="16dp"
-                android:text="Information"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="14dp"
+                android:text=" Information"
                 android:textColor="@color/black"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -206,6 +189,7 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="16dp"
                     android:text="Delivery Address"
+                    android:textColor="@color/black"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -219,24 +203,24 @@
                     app:srcCompat="@drawable/location" />
 
                 <TextView
-                    android:id="@+id/textView34"
+                    android:id="@+id/txtAddress"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:text="Address"
                     android:textColor="@color/black"
-                    android:textSize="18sp"
+                    android:textSize="15sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="@+id/imageView5"
                     app:layout_constraintStart_toEndOf="@+id/imageView5"
                     app:layout_constraintTop_toTopOf="@+id/imageView5" />
 
                 <ImageView
-                    android:id="@+id/imageView8"
+                    android:id="@+id/addressArrow"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="16dp"
-                    app:layout_constraintBottom_toBottomOf="@+id/textView34"
+                    app:layout_constraintBottom_toBottomOf="@+id/txtAddress"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/textView33"
                     app:srcCompat="@drawable/frontarrow" />
@@ -251,12 +235,13 @@
                     android:background="#ABABAB"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView34" />
+                    app:layout_constraintTop_toBottomOf="@+id/txtAddress" />
 
                 <TextView
                     android:id="@+id/textView36"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/black"
                     android:layout_marginTop="16dp"
                     android:text="Payment Method"
                     app:layout_constraintStart_toStartOf="@+id/imageView5"
@@ -274,24 +259,25 @@
                     app:srcCompat="@drawable/payment" />
 
                 <TextView
-                    android:id="@+id/textView37"
+                    android:id="@+id/txtPayment"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:text="Cash"
                     android:textColor="@color/black"
-                    android:textSize="18sp"
+                    android:textSize="15sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="@+id/imageView9"
                     app:layout_constraintStart_toEndOf="@+id/imageView9"
-                    app:layout_constraintTop_toTopOf="@+id/imageView9" />
+                    app:layout_constraintTop_toTopOf="@+id/imageView9"
+                    app:layout_constraintVertical_bias="1.0" />
 
                 <ImageView
-                    android:id="@+id/imageView10"
+                    android:id="@+id/paymentArrow"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="16dp"
-                    app:layout_constraintBottom_toBottomOf="@+id/textView37"
+                    app:layout_constraintBottom_toBottomOf="@+id/txtPayment"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/textView36"
                     app:srcCompat="@drawable/frontarrow" />
