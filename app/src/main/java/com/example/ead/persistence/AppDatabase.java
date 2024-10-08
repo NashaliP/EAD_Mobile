@@ -6,10 +6,12 @@ import android.content.Context;
 
 @Database(entities = {CartItem.class}, version = 4, exportSchema = false)
 public abstract class AppDatabase extends RoomDatabase {
+    // Provides access to the CartDao for database operations
     public abstract CartDao cartDao();
 
     private static volatile AppDatabase INSTANCE;
 
+    // Returns the singleton instance of the database
     public static AppDatabase getDatabase(final Context context) {
         if (INSTANCE == null) {
             synchronized (AppDatabase.class) {

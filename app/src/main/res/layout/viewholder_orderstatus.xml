@@ -24,7 +24,7 @@
         android:id="@+id/imgItemCart"
         android:layout_width="64dp"
         android:layout_height="64dp"
-        android:src="@drawable/dress2"
+        android:src="@drawable/VENDORA"
         app:layout_constraintBottom_toBottomOf="@+id/view6"
         app:layout_constraintEnd_toEndOf="@+id/view6"
         app:layout_constraintStart_toStartOf="@+id/view6"
@@ -46,10 +46,11 @@
         android:id="@+id/tvItemQty"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:text="0"
-        android:textSize="18sp"
+        android:layout_marginStart="18dp"
+        android:layout_marginBottom="8dp"
+        android:text="Qty:2"
         android:textColor="@color/black"
+        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="@+id/view6"
         app:layout_constraintStart_toEndOf="@+id/imgItemCart" />
 
@@ -58,56 +59,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginEnd="28dp"
         android:text="0"
         android:textColor="@color/black"
-        android:textStyle="bold"
         android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/tvItemQty"
-        app:layout_constraintEnd_toEndOf="@+id/tvItemTotal">
-
-        <TextView
-            android:id="@+id/btnPlusCart"
-            android:layout_width="28dp"
-            android:layout_height="28dp"
-            android:text="+"
-            android:gravity="center"
-            android:textColor="@color/black"
-            android:background="@drawable/white_circle_bg_qtycart"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/txtCartItemQty"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:text="0"
-            android:textColor="@color/black"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/btnPlusCart"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/btnMinusCart"
-            android:layout_width="28dp"
-            android:layout_height="28dp"
-            android:text="-"
-            android:textColor="@color/black"
-            android:gravity="center"
-            android:layout_marginEnd="12dp"
-            android:background="@drawable/white_circle_bg_qtycart"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/txtCartItemQty"
-            app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

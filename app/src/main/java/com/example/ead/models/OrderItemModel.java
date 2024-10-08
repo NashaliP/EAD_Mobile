@@ -1,6 +1,8 @@
 package com.example.ead.models;
 
-public class OrderItemModel {
+import java.io.Serializable;
+
+public class OrderItemModel implements Serializable {
     public String productName;
     public String vendorId;
     public int quantity;
@@ -11,5 +13,10 @@ public class OrderItemModel {
         this.vendorId = vendorId;
         this.quantity = quantity;
         this.price = price;
+    }
+
+    // Method to calculate the total price for this item
+    public double getTotalPrice() {
+        return this.quantity * this.price;
     }
 }

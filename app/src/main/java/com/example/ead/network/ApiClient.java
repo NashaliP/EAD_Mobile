@@ -6,8 +6,12 @@
 //        import retrofit2.converter.gson.GsonConverterFactory;
 //
 //
+///**
+// * Returns a singleton instance of Retrofit. If an instance doesn't exist,
+// * it initializes one with logging and Gson converter.
+// */
 //public class ApiClient {
-//    private static final String BASE_URL = "http://10.0.2.2:15240/api/";
+//    private static final String BASE_URL = "http://192.168.8.139:15240/api/";
 //    private static Retrofit retrofit;
 //
 //    public static Retrofit getRetrofitInstance() {

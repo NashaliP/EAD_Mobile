@@ -6,16 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".activities.LoginPage">
 
-    <!-- Header Text -->
-
-    <!-- Email EditText -->
-
-    <!-- Password EditText -->
-
-    <!-- Sign Up Button -->
-
-    <!-- Login Link -->
-
     <TextView
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
@@ -65,7 +55,7 @@
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginTop="132dp"
-        android:background="@drawable/edit_btn_bg"
+        android:background="@drawable/button_background"
         android:text="Log in"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"

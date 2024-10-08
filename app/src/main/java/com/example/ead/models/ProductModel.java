@@ -20,10 +20,11 @@ public class ProductModel {
         this.vendorId = vendorId;
     }
 
+    // Getters
     public String getId() {
         return id;
     }
-    // Getters
+
     public String getName() {
         return name;
     }

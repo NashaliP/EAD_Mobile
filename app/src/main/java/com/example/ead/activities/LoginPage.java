@@ -1,6 +1,7 @@
 package com.example.ead.activities;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Patterns;
@@ -77,7 +78,9 @@ public class LoginPage extends AppCompatActivity {
                                 UserResponse userResponse = response.body();
                                 String userStatus = userResponse.getUserStatus();
 
-                                // Check user status and respond accordingly
+                                String userEmail = userResponse.getEmail();
+
+                                // Check user status and respond
                                 switch (userStatus) {
                                     case "Pending":
                                         Toast.makeText(LoginPage.this, "Your account is awaiting approval.", Toast.LENGTH_SHORT).show();
@@ -86,6 +89,7 @@ public class LoginPage extends AppCompatActivity {
                                         Toast.makeText(LoginPage.this, "Your account was rejected. Please contact support.", Toast.LENGTH_SHORT).show();
                                         break;
                                     case "Approved":
+                                        saveUserEmail(userEmail); // Save the user's email
                                         Toast.makeText(LoginPage.this, "Login successful!", Toast.LENGTH_SHORT).show();
                                         Intent profileActivity = new Intent(LoginPage.this, ShoppingActivity.class);
                                         startActivity(profileActivity);
@@ -109,5 +113,12 @@ public class LoginPage extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    private void saveUserEmail(String email) {
+        SharedPreferences sharedPreferences = getSharedPreferences("UserPrefs", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("user_email", email); // Store user email
+        editor.apply();
     }
 }

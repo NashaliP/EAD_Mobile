@@ -5,40 +5,128 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="@dimen/dimen_20"
+    android:padding="20dp"
     tools:context=".activities.PaymentActivity">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
         android:text="Select Payment Method"
-        android:textSize="18sp"
-        android:layout_marginBottom="20dp"/>
+        android:textColor="@color/black"
+        android:textSize="22sp"
+        android:textStyle="bold" />
 
     <RadioGroup
         android:id="@+id/radioGroupPayment"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-        <RadioButton
-            android:id="@+id/radioVisa"
-            android:layout_width="wrap_content"
+        <!-- Visa Option -->
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Visa"/>
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
 
-        <RadioButton
-            android:id="@+id/radioMasterCard"
-            android:layout_width="wrap_content"
+            <RadioButton
+                android:id="@+id/radioVisa"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:id="@+id/imgVisaLogo"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:src="@drawable/mastercard"
+            android:contentDescription="Visa Logo" />
+
+
+        </LinearLayout>
+
+        <!-- MasterCard Option -->
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="MasterCard"/>
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <RadioButton
+                android:id="@+id/radioMasterCard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text=""
+                android:textSize="16sp" />
+
+            <ImageView
+                android:id="@+id/imgMasterCardLogo"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:contentDescription="Visa Logo"
+                android:src="@drawable/visa" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <RadioButton
+                android:id="@+id/radioAmez"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text=""
+                android:textSize="16sp" />
+
+            <ImageView
+                android:id="@+id/imgAmex"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:contentDescription="MasterCard Logo"
+                android:src="@drawable/amex" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <RadioButton
+                android:id="@+id/radioPaypal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text=""
+                android:textSize="16sp" />
+
+            <ImageView
+                android:id="@+id/imgPaypal"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:contentDescription="Paypal Logo"
+                android:src="@drawable/paypal" />
+
+
+        </LinearLayout>
 
     </RadioGroup>
 
     <Button
         android:id="@+id/btnMakePayment"
-        android:layout_width="match_parent"
+        android:layout_width="348dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Make Payment" />
-
+        android:layout_marginTop="100dp"
+        android:background="@drawable/button_background"
+        android:text="Confirm" />
 </LinearLayout>
