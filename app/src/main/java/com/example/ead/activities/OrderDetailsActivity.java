@@ -52,7 +52,7 @@ public class OrderDetailsActivity extends AppCompatActivity {
 
     private void populateOrderDetails() {
         // Set order details
-//        tvOrderNumber.setText("Order #" + order.orderNumber);
+        tvOrderNumber.setText("Order #" + orderDetails.orderId);
         tvOrderStatus.setText(orderDetails.status.name());
         tvOrderTotal.setText("$" + orderDetails.totalAmount);
         tvOrderDate.setText(orderDetails.orderDate);
