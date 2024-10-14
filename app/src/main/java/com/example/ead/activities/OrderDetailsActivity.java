@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -20,7 +21,7 @@ public class OrderDetailsActivity extends AppCompatActivity {
     private TextView tvOrderNumber, tvOrderStatus, tvOrderTotal, tvOrderDate, tvShippingAddress, tvPaymentMethod;
     private RecyclerView productRV;
     private ImageView packageIcon;
-    private Button btnCancelOrder, btnLeaveReview;
+    private Button btnCancelOrder;
     private OrderModel orderDetails;
 
     @Override
@@ -38,9 +39,8 @@ public class OrderDetailsActivity extends AppCompatActivity {
         productRV = findViewById(R.id.productRV);
         packageIcon = findViewById(R.id.imgPackageIcon);
         btnCancelOrder = findViewById(R.id.btnCancel);
-        btnLeaveReview = findViewById(R.id.btnSubmitReview);
 
-        // Get the order passed from the previous activity (fragments)
+        // Get the order passed from the previous activity
         orderDetails = (OrderModel) getIntent().getSerializableExtra("order");
 
         // Setup the UI with order details
@@ -60,7 +60,7 @@ public class OrderDetailsActivity extends AppCompatActivity {
         tvPaymentMethod.setText(orderDetails.paymentMethod);
 
         // Setup the RecyclerView to show ordered items
-        OrderItemsAdapter adapter = new OrderItemsAdapter(orderDetails.items);
+        OrderItemsAdapter adapter = new OrderItemsAdapter(orderDetails.items,orderDetails.status, this);
         productRV.setLayoutManager(new LinearLayoutManager(this));
         productRV.setAdapter(adapter);
 
@@ -98,20 +98,6 @@ public class OrderDetailsActivity extends AppCompatActivity {
             // Hide cancel button if order is delivered or canceled
             btnCancelOrder.setVisibility(View.GONE);
         }
-
-        if (orderDetails.status == OrderStatus.Delivered) {
-            // Show "Leave a Review" button for completed orders
-            btnLeaveReview.setVisibility(View.VISIBLE);
-            btnLeaveReview.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    leaveReview();
-                }
-            });
-        } else {
-            // Hide review button for ongoing or canceled orders
-            btnLeaveReview.setVisibility(View.GONE);
-        }
     }
 
     private void cancelOrder() {
@@ -120,6 +106,7 @@ public class OrderDetailsActivity extends AppCompatActivity {
     }
 
     private void leaveReview() {
-        // Handle leaving a review, possibly open a new activity or dialog for submitting a review
+        Intent intent = new Intent(OrderDetailsActivity.this, FeedbackActivity.class);
+        startActivity(intent);
     }
 }
