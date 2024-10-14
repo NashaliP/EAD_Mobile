@@ -197,6 +197,7 @@
 
                 android:textStyle="bold"
                 app:layout_constraintEnd_toStartOf="@+id/IDTIQuantity"
+                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toEndOf="@+id/idTVProductSize"
                 app:layout_constraintTop_toBottomOf="@+id/idTVProductDescription" />
 
@@ -221,18 +222,17 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/IDTIQuantity"
-                android:layout_width="0dp"
-                android:layout_height="48dp"
-                android:layout_marginTop="56dp"
+                android:layout_width="143dp"
+                android:layout_height="49dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginBottom="92dp"
                 android:ems="10"
                 android:hint="Enter qty"
                 android:inputType="number"
                 android:textAlignment="center"
                 android:textSize="18sp"
-                app:layout_constraintEnd_toEndOf="@+id/idTVProductDescription"
-                app:layout_constraintHorizontal_bias="0.148"
-                app:layout_constraintStart_toEndOf="@+id/idTVQuantity"
-                app:layout_constraintTop_toBottomOf="@+id/idTVProductDescription" />
+                app:layout_constraintBottom_toTopOf="@+id/idAddToCartBtn"
+                app:layout_constraintEnd_toEndOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
