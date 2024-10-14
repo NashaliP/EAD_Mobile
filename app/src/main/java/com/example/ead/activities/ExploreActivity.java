@@ -2,11 +2,15 @@ package com.example.ead.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.RadioGroup;
 import android.widget.SearchView;
 
 import com.example.ead.R;
@@ -14,8 +18,10 @@ import com.example.ead.adapter.ProductsListAdapter;
 import com.example.ead.models.ProductModel;
 import com.example.ead.network.ApiClient;
 import com.example.ead.services.ProductService;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import retrofit2.Call;
@@ -28,6 +34,8 @@ public class ExploreActivity extends AppCompatActivity {
     private List<ProductModel> productList;
     private List<ProductModel> filteredProductList;  // To store filtered products
     private SearchView idSVExplore;
+    private Button filterButton, sortButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,12 +55,24 @@ public class ExploreActivity extends AppCompatActivity {
         // Initialize SearchView
         idSVExplore = findViewById(R.id.idSVExplore);
 
+        // Initialize Sort Button
+        sortButton = findViewById(R.id.sortButton);
+
+        // Set up the listener for Sort Button
+        sortButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openSortBottomSheet();
+            }
+        });
+
         // Fetch all products from the API
         fetchAllProducts();
 
         // Set up search functionality
         setupSearchView();
     }
+
     private void fetchAllProducts() {
         ProductService productService = ApiClient.getRetrofitInstance().create(ProductService.class);
 
@@ -69,6 +89,7 @@ public class ExploreActivity extends AppCompatActivity {
                     Log.e("ExploreActivity", "Response not successful or body is null");
                 }
             }
+
             @Override
             public void onFailure(Call<List<ProductModel>> call, Throwable t) {
                 Log.e("ExploreActivity", "Error fetching products", t);
@@ -110,6 +131,71 @@ public class ExploreActivity extends AppCompatActivity {
         }
 
         // Notify the adapter about the changes
+        productsListAdapter.notifyDataSetChanged();
+    }
+
+    // Method to open the Bottom Sheet Dialog for sorting options
+    private void openSortBottomSheet() {
+        // Create a BottomSheetDialog
+        BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(ExploreActivity.this);
+
+        // Inflate the layout for the bottom sheet
+        View bottomSheetView = LayoutInflater.from(getApplicationContext())
+                .inflate(R.layout.bottom_sheet_sort, (ViewGroup) findViewById(R.id.buttonContainer), false);
+
+        // Set the bottom sheet view to the dialog
+        bottomSheetDialog.setContentView(bottomSheetView);
+
+        // Set the height of the bottom sheet to half the screen
+        bottomSheetView.getLayoutParams().height = ViewGroup.LayoutParams.WRAP_CONTENT;
+        bottomSheetDialog.getBehavior().setPeekHeight((int) (getResources().getDisplayMetrics().heightPixels * 0.5));
+
+        // Get the RadioGroup and handle selection
+        RadioGroup radioGroupSort = bottomSheetView.findViewById(R.id.radioGroupSort);
+        radioGroupSort.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+
+                switch (checkedId) {
+//                    case R.id.radioRecentlyAdded:
+//                        selectedOption = "Recently Added";
+//                        break;
+                    case R.id.radioPriceLowToHigh:
+                        // Sort products by price in ascending order (low to high)
+                        sortProductsByPrice(true);
+                        break;
+                    case R.id.radioPriceHighToLow:
+                        // Sort products by price in descending order (high to low)
+                        sortProductsByPrice(false);
+                        break;
+//                    case R.id.radioMostRated:
+//                        selectedOption = "Most Rated";
+//                        break;
+                }
+
+                // Notify adapter about changes
+                productsListAdapter.notifyDataSetChanged();
+
+                // Dismiss the bottom sheet after selection
+                bottomSheetDialog.dismiss();
+            }
+        });
+
+        // Show the bottom sheet
+        bottomSheetDialog.show();
+    }
+
+    // Method to sort products by price
+    private void sortProductsByPrice(boolean ascending) {
+        if (ascending) {
+            // Sort in ascending order (Price: Low to High)
+            Collections.sort(filteredProductList, (product1, product2) -> Double.compare(product1.getPrice(), product2.getPrice()));
+        } else {
+            // Sort in descending order (Price: High to Low)
+            Collections.sort(filteredProductList, (product1, product2) -> Double.compare(product2.getPrice(), product1.getPrice()));
+        }
+
+        // After sorting, notify the adapter to update the displayed products
         productsListAdapter.notifyDataSetChanged();
     }
 }
