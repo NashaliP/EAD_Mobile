@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@drawable/rounded_bottom_sheet">
+
+    <!-- Title -->
+    <TextView
+        android:id="@+id/bottomSheetTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sort Options"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:paddingBottom="12dp" />
+
+    <!-- RadioGroup for Sorting Options -->
+    <RadioGroup
+        android:id="@+id/radioGroupSort"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="16dp">
+
+        <RadioButton
+            android:id="@+id/radioRecentlyAdded"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Recently Added" />
+
+        <RadioButton
+            android:id="@+id/radioPriceHighToLow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Price: High to Low" />
+
+        <RadioButton
+            android:id="@+id/radioPriceLowToHigh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Price: Low to High" />
+
+        <RadioButton
+            android:id="@+id/radioMostRated"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Most Rated" />
+
+    </RadioGroup>
+
+    <!-- You can still add filter options or any other components here -->
+
+</LinearLayout>
