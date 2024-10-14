@@ -36,6 +36,7 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrderViewHol
     @Override
     public void onBindViewHolder(@NonNull OrderViewHolder holder, int position) {
         OrderModel order = orderList.get(position);
+        holder.tvOrderID.setText(order.orderId);
         holder.tvOrderTotal.setText(String.valueOf("$" + order.totalAmount));
         // Format the order date before displaying it
         String formattedDate = formatOrderDate(order.orderDate);
@@ -57,10 +58,11 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrderViewHol
     }
 
     public static class OrderViewHolder extends RecyclerView.ViewHolder {
-        TextView tvOrderDate, tvOrderTotal, tvOrderStatus;
+        TextView tvOrderID,tvOrderDate, tvOrderTotal, tvOrderStatus;
 
         public OrderViewHolder(@NonNull View itemView) {
             super(itemView);
+            tvOrderID=itemView.findViewById(R.id.tvOrderID);
             tvOrderTotal = itemView.findViewById(R.id.tvOrderTotal);
             tvOrderDate = itemView.findViewById(R.id.tvOrderDate);
             tvOrderStatus = itemView.findViewById(R.id.tvOrderStatus);

@@ -9,6 +9,7 @@ import androidx.room.Room;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -97,6 +98,7 @@ public class CartActivity extends AppCompatActivity {
                             // Handle payment result
                             String paymentMethod = data.getStringExtra("paymentMethod");
                             txtPaymentMethod.setText(paymentMethod); // Display payment method in the cart UI
+                            Log.d("CartActivity", "Received Payment Method: " + paymentMethod); // Debug log
                         }
                     }
                 });
@@ -152,13 +154,17 @@ public class CartActivity extends AppCompatActivity {
                                         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
                                         String orderDate = sdf.format(new Date());
 
+                                        // Generate a random order ID
+                                        String generatedOrderId = OrderModel.generateOrderId();
+
                                         OrderModel orderModel = new OrderModel(
                                                 orderItems,
                                                 txtAddress.getText().toString(),
                                                 txtPaymentMethod.getText().toString(),
                                                 subtotal + DELIVERY_CHARGE,
                                                 orderDate,
-                                                OrderStatus.Processing
+                                                OrderStatus.Processing,
+                                                generatedOrderId
                                         );
 
 
