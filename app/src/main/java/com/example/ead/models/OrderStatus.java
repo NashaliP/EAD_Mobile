@@ -4,5 +4,5 @@ public enum OrderStatus {
     Processing,
     Partially_Delivered,
     Delivered,
-    Cancelled
+    Canceled
 }

@@ -164,7 +164,8 @@ public class CartActivity extends AppCompatActivity {
                                                 subtotal + DELIVERY_CHARGE,
                                                 orderDate,
                                                 OrderStatus.Processing,
-                                                generatedOrderId
+                                                generatedOrderId,
+                                                null
                                         );
 
 

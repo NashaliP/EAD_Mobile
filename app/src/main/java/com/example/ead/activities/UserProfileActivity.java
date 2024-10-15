@@ -26,7 +26,7 @@ public class UserProfileActivity extends AppCompatActivity {
 
     private UserService userService;
     private String userEmail;
-    private ImageView imgOrderHistory;
+    private ImageView imgOrderHistory,imgNotifications;
     private Button btnDeactivateProfile;
 
     @Override
@@ -51,12 +51,21 @@ public class UserProfileActivity extends AppCompatActivity {
         });
 
         imgOrderHistory = findViewById(R.id.imgOrderHistory);
+        imgNotifications=findViewById(R.id.imgNotifications);
 
         // Set click listener for Order History
         imgOrderHistory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(UserProfileActivity.this, OrderHistoryActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        imgNotifications.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(UserProfileActivity.this, NotificationsActivity.class);
                 startActivity(intent);
             }
         });

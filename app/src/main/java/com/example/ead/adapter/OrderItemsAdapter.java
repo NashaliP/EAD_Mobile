@@ -75,7 +75,7 @@ public class OrderItemsAdapter extends RecyclerView.Adapter<OrderItemsAdapter.Or
 
         public OrderItemViewHolder(@NonNull View itemView) {
             super(itemView);
-            tvItemName = itemView.findViewById(R.id.tvItemName);
+            tvItemName = itemView.findViewById(R.id.tvMessage);
             tvItemQuantity = itemView.findViewById(R.id.tvItemQty);
             tvItemTotal = itemView.findViewById(R.id.tvItemTotal);
             txtSubmitReview = itemView.findViewById(R.id.txtSubmitReview);

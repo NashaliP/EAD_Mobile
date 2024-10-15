@@ -103,7 +103,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
 
         public CartViewHolder(@NonNull View itemView) {
             super(itemView);
-            txtCartItemName = itemView.findViewById(R.id.tvItemName);
+            txtCartItemName = itemView.findViewById(R.id.tvMessage);
             txtPricePerItem = itemView.findViewById(R.id.tvItemQty);
             txtCartItemQty = itemView.findViewById(R.id.txtCartItemQty);
             txtTotalPerItem = itemView.findViewById(R.id.tvItemTotal);

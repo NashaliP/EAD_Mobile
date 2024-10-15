@@ -13,8 +13,9 @@ public class OrderModel implements Serializable {
 
     public OrderStatus status;
     public String orderId;
+    public String cancellationNote;
 
-    public OrderModel(List<OrderItemModel> items, String shippingAddress, String paymentMethod, double totalAmount, String orderDate, OrderStatus status,String orderId) {
+    public OrderModel(List<OrderItemModel> items, String shippingAddress, String paymentMethod, double totalAmount, String orderDate, OrderStatus status,String orderId,String cancellationNote) {
         this.items = items;
         this.shippingAddress = shippingAddress;
         this.paymentMethod = paymentMethod;
@@ -22,6 +23,7 @@ public class OrderModel implements Serializable {
         this.orderDate = orderDate;
         this.status = status;
         this.orderId = orderId;
+        this.cancellationNote = cancellationNote;
     }
 
     // Static method to generate an order ID
