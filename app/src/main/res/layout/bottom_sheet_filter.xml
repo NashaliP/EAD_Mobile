@@ -1,6 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
 
+    <!-- Vendor Filtering -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Vendors"
+        android:layout_marginTop="20dp"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/chipGroupVendors"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ardell" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="bareMinerals" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ciaté" />
+    </com.google.android.material.chip.ChipGroup>
+
+    <!-- Price Range -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Price Range"
+        android:layout_marginTop="30dp"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <SeekBar
+        android:id="@+id/priceRange"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:max="250" />
+
+    <TextView
+        android:id="@+id/priceRangeTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0 - 234€" />
+
+    <!-- Customer Review Filtering -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ratings"
+        android:layout_marginTop="30dp"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <RadioGroup
+        android:id="@+id/radioGroupRatings"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RadioButton
+            android:id="@+id/radio4StarsAndUp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="4 Stars and Up" />
+
+        <RadioButton
+            android:id="@+id/radio3StarsAndUp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="3 Stars and Up" />
+
+        <RadioButton
+            android:id="@+id/radio2StarsAndUp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2 Stars and Up" />
+
+
+    </RadioGroup>
+
+    <!-- Apply Filter Button -->
+    <Button
+        android:id="@+id/buttonApplyFilter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="Apply Filter" />
 </LinearLayout>

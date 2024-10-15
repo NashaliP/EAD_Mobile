@@ -15,6 +15,9 @@
         android:theme="@style/Theme.Vendora"
         tools:targetApi="31">
         <activity
+            android:name=".activities.NotificationsActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.FeedbackActivity"
             android:exported="false" />
         <activity

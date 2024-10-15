@@ -32,7 +32,7 @@ public class ExploreActivity extends AppCompatActivity {
     private RecyclerView exploreRecyclerView;
     private ProductsListAdapter productsListAdapter;
     private List<ProductModel> productList;
-    private List<ProductModel> filteredProductList;  // To store filtered products
+    private List<ProductModel> filteredProductList;
     private SearchView idSVExplore;
     private Button filterButton, sortButton;
 

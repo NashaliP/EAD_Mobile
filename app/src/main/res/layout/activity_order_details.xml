@@ -266,19 +266,24 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
+            <TextView
+                android:id="@+id/tvCancellationNote"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:visibility="gone"
+                android:text="Cancellation Note:"
+                android:textColor="#880808"
+                android:textSize="16sp" />
+
+
             <Button
                 android:id="@+id/btnCancel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
                 android:text="Cancel Order" />
-
-            <Button
-                android:id="@+id/btnSubmitReview"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                android:text="Leave a Review" />
 
         </LinearLayout>
     </ScrollView>

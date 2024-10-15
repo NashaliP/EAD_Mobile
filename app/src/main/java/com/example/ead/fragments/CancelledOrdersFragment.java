@@ -69,7 +69,7 @@ public class CancelledOrdersFragment extends Fragment {
     private void filterCanceledOrders(List<OrderModel> allOrders) {
         cancelledOrders = new ArrayList<>();
         for (OrderModel order : allOrders) {
-            if (order.status == OrderStatus.Cancelled) {
+            if (order.status == OrderStatus.Canceled) {
                 cancelledOrders.add(order);
             }
         }
