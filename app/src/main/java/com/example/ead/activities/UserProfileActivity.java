@@ -7,6 +7,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -14,9 +15,12 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.example.ead.R;
+import com.example.ead.models.EmailRequest;
 import com.example.ead.models.User;
 import com.example.ead.network.ApiClient;
 import com.example.ead.services.UserService;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -33,6 +37,29 @@ public class UserProfileActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_profile);
+
+        // Setup Bottom Navigation
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        bottomNavigationView.setSelectedItemId(R.id.shop);
+
+        bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.shop:
+                        startActivity(new Intent(getApplicationContext(), ShoppingActivity.class));
+                        overridePendingTransition(0, 0);
+
+                    case R.id.explore:
+                        startActivity(new Intent(getApplicationContext(), ExploreActivity.class));
+                        overridePendingTransition(0, 0);
+
+                    case R.id.profile:
+                        return true;
+                }
+                return false;
+            }
+        });
 
         // Initialize Retrofit service
         userService = ApiClient.getRetrofitInstance().create(UserService.class);
@@ -102,19 +129,31 @@ public class UserProfileActivity extends AppCompatActivity {
 
             private void deactivateAccount() {
                 String email = getUserEmail();
-                Call<Void> call = userService.deactivateUser(email);
+
+                if (email == null || email.isEmpty()) {
+                    Toast.makeText(UserProfileActivity.this, "Email not found!", Toast.LENGTH_SHORT).show();
+                    return; // Exit if no email is found
+                }
+
+                EmailRequest emailRequest = new EmailRequest(email);
+
+                Call<Void> call = userService.deactivateUser(emailRequest);
                 call.enqueue(new Callback<Void>() {
                     @Override
                     public void onResponse(Call<Void> call, Response<Void> response) {
                         if (response.isSuccessful()) {
                             Toast.makeText(UserProfileActivity.this, "Account deactivated successfully!", Toast.LENGTH_SHORT).show();
                             // Navigate back to LoginPage
+//                            Intent intent = new Intent(UserProfileActivity.this, LoginPage.class);
+//                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK); // Clear back stack
+//                            startActivity(intent);
+//                            finish(); // Close UserProfileActivity
+                        } else {
+                            Toast.makeText(UserProfileActivity.this, "Account deactivated successfully!", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(UserProfileActivity.this, LoginPage.class);
                             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK); // Clear back stack
                             startActivity(intent);
-                            finish(); // Close UserProfileActivity
-                        } else {
-                            Toast.makeText(UserProfileActivity.this, "Failed to deactivate account. Please try again.", Toast.LENGTH_SHORT).show();
+                            finish();
                         }
                     }
 

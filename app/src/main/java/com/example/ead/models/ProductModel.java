@@ -7,7 +7,7 @@ public class ProductModel {
     private String imgurl;
     private String description;
     private double price;
-    private float rating;
+    private double rating;
     private String vendorId;
 
     public ProductModel(String id,String name, String imgurl, String description, double price, float rating,String vendorId) {
@@ -41,7 +41,11 @@ public class ProductModel {
         return price;
     }
 
-    public float getRating() {
+    public void setRating(double rating) {
+        this.rating = rating;
+    }
+
+    public double getRating() {
         return rating;
     }
     public String getVendorId() { // Add a getter for vendorId

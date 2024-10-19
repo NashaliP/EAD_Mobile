@@ -36,7 +36,7 @@
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:id="@+id/constraintLayout2"
                         android:layout_width="match_parent"
-                        android:layout_height="360dp"
+                        android:layout_height="300dp"
                         android:background="@drawable/top_bg_profile"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -69,9 +69,9 @@
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="350dp"
+                        android:layout_height="320dp"
                         android:layout_marginStart="24dp"
-                        android:layout_marginTop="60dp"
+                        android:layout_marginTop="30dp"
                         android:layout_marginEnd="24dp"
                         android:layout_marginBottom="24dp"
                         android:background="@drawable/white_bg_profile"
@@ -361,5 +361,13 @@
         </LinearLayout>
     </ScrollView>
 
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_navbar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

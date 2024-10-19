@@ -50,7 +50,6 @@ public class NotificationsActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<List<NotificationModel>> call, Throwable t) {
-                // Handle failure (e.g., show a toast or log the error)
             }
         });
     }

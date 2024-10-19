@@ -34,17 +34,12 @@ import retrofit2.Response;
 
 public class ShoppingActivity extends AppCompatActivity {
 
-    //featured products
     private RecyclerView featuredProductsRecyclerView;
     private ShopProductAdapter productAdapter;
     private List<ProductModel> productList;
-
-    //categories
     private Spinner spinnerCategories;
     private List<CategoryModel> categoryList = new ArrayList<>();
     private ArrayAdapter<String> categoryAdapter;
-
-    // Flag to track if the user has made a selection
     private boolean hasSelectedCategory = false;
 
 

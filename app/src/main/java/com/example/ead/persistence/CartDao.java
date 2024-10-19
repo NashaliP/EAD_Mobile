@@ -21,8 +21,8 @@ public interface CartDao {
     void clearCart();
 
     @Update
-    void updateCartItem(CartItem cartItem); // Method to update a cart item
+    void updateCartItem(CartItem cartItem);
 
     @Delete
-    void deleteCartItem(CartItem cartItem); // Method to delete a cart item
+    void deleteCartItem(CartItem cartItem);
 }

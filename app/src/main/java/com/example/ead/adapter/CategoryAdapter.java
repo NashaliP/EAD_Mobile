@@ -71,7 +71,6 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
         public CategoryViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            // Initialize the views
             imgCat = itemView.findViewById(R.id.imgCat);
             categoryNameTxt = itemView.findViewById(R.id.categoryNameTxt);
         }

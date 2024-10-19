@@ -83,7 +83,7 @@ public class LoginPage extends AppCompatActivity {
                                 // Check user status and respond
                                 switch (userStatus) {
                                     case "Pending":
-                                        Toast.makeText(LoginPage.this, "Your account is awaiting approval.", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(LoginPage.this, "Account can't be accessed yet.", Toast.LENGTH_SHORT).show();
                                         break;
                                     case "Rejected":
                                         Toast.makeText(LoginPage.this, "Your account was rejected. Please contact support.", Toast.LENGTH_SHORT).show();
@@ -100,7 +100,6 @@ public class LoginPage extends AppCompatActivity {
                                         break;
                                 }
                             } else {
-                                // Handle unsuccessful response (invalid credentials, etc.)
                                 Toast.makeText(LoginPage.this, "Account awaiting approval.", Toast.LENGTH_SHORT).show();
                             }
                         }
@@ -118,7 +117,7 @@ public class LoginPage extends AppCompatActivity {
     private void saveUserEmail(String email) {
         SharedPreferences sharedPreferences = getSharedPreferences("UserPrefs", MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString("user_email", email); // Store user email
+        editor.putString("user_email", email);
         editor.apply();
     }
 }

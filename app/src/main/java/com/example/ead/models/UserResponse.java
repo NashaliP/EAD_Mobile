@@ -2,6 +2,8 @@ package com.example.ead.models;
 
 public class UserResponse {
     private String id;
+
+    private String name;
     private String email;
     private String role;
     private String userStatus;
@@ -10,6 +12,10 @@ public class UserResponse {
     // Returns the user's ID
     public String getId() {
         return id;
+    }
+
+    public String getName() {
+        return name;
     }
 
     // Returns the user's email

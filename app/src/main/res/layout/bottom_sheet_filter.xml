@@ -3,53 +3,68 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:background="@drawable/rounded_bottom_sheet">
+
 
     <!-- Vendor Filtering -->
+    <TextView
+        android:id="@+id/txtClear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Clear"
+        android:textSize="15dp"
+        android:textAlignment="viewEnd"/>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Vendors"
+        android:textColor="@color/black"
         android:layout_marginTop="20dp"
         android:textSize="16sp"
         android:textStyle="bold" />
 
-    <com.google.android.material.chip.ChipGroup
-        android:id="@+id/chipGroupVendors"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="horizontal">
 
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chip1"
+        <CheckBox
+            android:id="@+id/checkBoxZara"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Ardell" />
+            android:text="Zara" />
 
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chip2"
+        <CheckBox
+            android:id="@+id/checkBoxLunaGrace"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="bareMinerals" />
+            android:layout_marginLeft="30dp"
+            android:layout_weight="1"
+            android:text="Luna Grace" />
 
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chip3"
+        <CheckBox
+            android:id="@+id/checkBoxElysianWardrobe"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Ciaté" />
-    </com.google.android.material.chip.ChipGroup>
+            android:layout_weight="1"
+            android:text="Elysian Wardrobe" />
+
+    </LinearLayout>
 
     <!-- Price Range -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Price Range"
+        android:textColor="@color/black"
         android:layout_marginTop="30dp"
         android:textSize="16sp"
         android:textStyle="bold" />
 
     <SeekBar
-        android:id="@+id/priceRange"
+        android:id="@+id/priceRangeSeekBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -59,13 +74,14 @@
         android:id="@+id/priceRangeTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="0 - 234€" />
+        android:text="0 - $500" />
 
     <!-- Customer Review Filtering -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Ratings"
+        android:textColor="@color/black"
         android:layout_marginTop="30dp"
         android:textSize="16sp"
         android:textStyle="bold" />

@@ -1,5 +1,6 @@
 package com.example.ead.services;
 
+import com.example.ead.models.EmailRequest;
 import com.example.ead.models.User;
 import com.example.ead.models.UserResponse;
 
@@ -20,5 +21,6 @@ public interface UserService {
 
     // Deactivate account endpoint
     @PUT("User/deactivateUser")
-    Call<Void> deactivateUser(@Body String email);
+//    Call<Void> deactivateUser(@Body String email);
+    Call<Void> deactivateUser(@Body EmailRequest emailRequest);
 }

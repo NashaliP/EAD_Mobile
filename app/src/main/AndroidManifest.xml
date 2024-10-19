@@ -46,7 +46,8 @@
             android:exported="false" />
         <activity
             android:name=".activities.ProductActivity"
-            android:exported="false" />
+            android:exported="false"
+            />
         <activity
             android:name=".activities.ExploreActivity"
             android:exported="false" />

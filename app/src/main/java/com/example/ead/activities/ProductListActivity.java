@@ -25,8 +25,6 @@ import retrofit2.Response;
 public class ProductListActivity extends AppCompatActivity {
 
     TextView titleTxt;
-    ProgressBar progressBar;
-
     private RecyclerView productListRV;
     private ProductsListAdapter productAdapter;
     private List<ProductModel> productModel;
@@ -39,7 +37,6 @@ public class ProductListActivity extends AppCompatActivity {
        // Initialize RecyclerView and TextView
         productListRV = findViewById(R.id.productListRV);
         titleTxt = findViewById(R.id.titleTxt);
-        progressBar = findViewById(R.id.progressBar);
         productListRV.setLayoutManager(new LinearLayoutManager(this));
 
         GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2); // 2 columns
@@ -52,7 +49,7 @@ public class ProductListActivity extends AppCompatActivity {
 
         // Get the selected category from the Intent
         String categoryName = getIntent().getStringExtra("categoryName");
-        titleTxt.setText(categoryName); // Set the title to the category name
+        titleTxt.setText(categoryName);
 
         // Fetch products for the selected category
         fetchProductsByCategory(categoryName);
